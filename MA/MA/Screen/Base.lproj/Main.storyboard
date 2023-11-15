@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9mY-qY-xsG">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--MainVC-->
+        <scene sceneID="6fx-NE-m24">
+            <objects>
+                <viewController id="2bg-Ej-oa9" customClass="MainVC" customModule="MA" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OYl-W6-J0l">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="eo0-z4-aXX">
+                                <rect key="frame" x="140.66666666666666" y="401.33333333333331" width="112" height="118.66666666666669"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yv3-Ug-SaV">
+                                        <rect key="frame" x="0.0" y="0.0" width="112" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="TEXT">
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="ky5-Gf-rBJ" kind="show" id="Dtl-7K-NYw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mjc-cP-4ND">
+                                        <rect key="frame" x="0.0" y="84.333333333333371" width="112" height="34.333333333333343"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="DICTINORY">
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="mfL-MM-65r" kind="show" id="snB-sN-FbL"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ptp-MR-wYx"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eo0-z4-aXX" firstAttribute="centerY" secondItem="ptp-MR-wYx" secondAttribute="centerY" id="E3g-WK-6Zb"/>
+                            <constraint firstItem="eo0-z4-aXX" firstAttribute="centerX" secondItem="ptp-MR-wYx" secondAttribute="centerX" id="Ycq-qK-es6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jLd-fr-CcW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hJs-Al-h8v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="953.43511450381675" y="19.718309859154932"/>
+        </scene>
+        <!--Table View Controller-->
+        <scene sceneID="F5T-DB-cEu">
+            <objects>
+                <tableViewController id="mfL-MM-65r" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="i9v-Yb-Hxa">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="f52-4R-XZa">
+                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f52-4R-XZa" id="JhO-4M-jKm">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="mfL-MM-65r" id="qQO-N6-3Is"/>
+                            <outlet property="delegate" destination="mfL-MM-65r" id="16e-GX-I5H"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="n9P-rJ-4PP"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I1a-fS-sdH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1857.2519083969464" y="489.43661971830988"/>
+        </scene>
+        <!--TextVC-->
+        <scene sceneID="34V-Ak-lXr">
+            <objects>
+                <viewController id="ky5-Gf-rBJ" customClass="TextVC" customModule="MA" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ia7-Gc-dZB">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xlg-4s-ADI">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="692"/>
+                                <subviews>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBn-iI-s6A">
+                                        <rect key="frame" x="0.0" y="25" width="393" height="642"/>
+                                        <subviews>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="6D5-KP-4TT">
+                                                <rect key="frame" x="15" y="0.0" width="363" height="642"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <string key="text">Let's take a look at some of the flight instruments' similarities and differences. The most prominent instrument on the PFD is the attitude indicator. It's quite large, easy to interpret, and rather self explanatory - it does however have a few unique features not found on its analog gauge cousin.
+
+If the pilot becomes too aggressive on the pitch, starting at 50 degrees above and 30 degrees below the horizon, red warning chevrons appear pointing in the direction of the horizon. This can be a big help if you become disoriented.
+
+Also, if the aircraft's pitch exceeds plus 30 degrees or minus 20 degrees, or when the bank angle is sixty-five degrees or better, the PFD automatically de-clutters, turning off it's less important data displays. This helps focus your attention on the attitude indicator so you can more quickly correct the situation.
+
+Notice that the entire PFD background, the earth, horizon, and sky, moves - the yellow airplane symbol remains stationary. 
+
+The slip and skid indicator is a small horizontal line located under the triangle roll pointer. It is, at first, hard to recognize and its small size is sometimes a challenge for the newly initiated.  
+
+It works the same however, as the standard inclinometer - step on the line instead of the ball. Underneath the attitude indicator is a large horizontal situation indicator.
+
+The HSI displays a rotating compass card with the usual cardinal points, numeric labels, and tick marks. It also depicts information common to any other HSI. However, there are some differences.
+
+Using the softkeys, the G1000 allows you to choose to view the HSI as a complete unit or as an arc. A large heading box is centered on top of the HSI - allowing for a direct digital readout of your heading. This makes selecting and holding a precise heading a piece of cake.
+
+As on most HSI's, a rotatable heading bug operates on the compass rose and marks the desired heading. You can use it as a memory device or actually steer the airplane with it in conjunction with the autopilot.
+
+There are two smaller boxes on either side of the HSI. The selected heading appears in a box left of the lubber line in light blue numerals. The selected course appears in a box to the right of the lubber line. 
+
+It becomes a magenta color if the navigation source is the GPS, or green if the navigation source originates from the VOR or localizer receivers.
+
+There is also a magenta diamond, the current track indicator, that appears on the outer rim of the HSI. This is basically an indication of your airplane's track across the ground, useful for staying on course en route with strong crosswinds. Simply fly the heading that puts the diamond on top of the CDI head.
+
+Bearing pointers can be overlaid on the HSI to show bearings to additional nav sources using the PFD softkeys.
+
+Another feature of the G1000 is a wide magenta line, called a trend vector. It displays the current turn rate up to 24 degrees per 6 seconds. A magenta arrowhead appears at 25 degrees. 
+
+This trend vector indicates where the heading will be six seconds from now, at your present rate of turn. These vector lines are present in other flight instruments as well.
+
+Notice that the turn rate indicator's tick marks are placed at 9 degrees and 18 degrees either side of the lubber line. Doing some quick math, 18 degrees in 6 seconds is 3 degrees per second; a standard rate turn. 
+
+9 degrees in 6 seconds is a half standard rate turn. Set a bank angle to place the trend vector on the tick mark to obtain the desired rate of turn.
+
+Just to the left of the attitude indicator and HSI is the airspeed indicator. Airspeed is depicted on a rolling vertical tape rather than a round dial.
+
+Its speed ranges are depicted in the familiar colors of white, green, yellow, and red. The actual airspeed is displayed inside a black pointer.
+
+What is different is the presence of a magenta airspeed trend vector. If the airspeed is constant, the trend vector isn't visible. As speed increases or decreases, the trend vector will indicate where the speed will be in six seconds if the present rate of change continues.
+
+Another addition is that of v speed reference marks located adjacent to their respective speeds. A nice touch - you don't have to worry about forgetting or confusing a v speed. These speeds can be changed if desired. 
+
+To adjust one of the v speeds, press the timer reference soft key at the lower corner of the pfd and use the fms knob to highlight one of the numbers and make a change. A star will appear next to the star to indicate that it has been modified from the default value.
+
+If you exceed vne, a barber pole pattern appears above it and the black airspeed pointer turns red. Below the airspeed's vertical tape is a true airspeed box - the G1000 does a lot of the computations for you.
+
+If you get too slow, a red range mark appears as a warning. The altimeter is located to the right of the attitude indicator. It's also depicted as a rolling vertical tape. 
+
+Most pilots report that it's easier to read than a conventional altimeter - no three hands to interpret. 
+
+You read the actual altitude in numeric fashion, which is depicted on a black pointer. Besides altitude, the device features a barometric pressure setting box under the tape - set it using either of the baro knobs. It also incorporates a selected altitude box positioned over the vertical tape.
+
+An altitude reference bug is an added feature as well. Both the selected altitude box and bug are set by using the alt knob located on the left side of either the PFD's or MFD's bezel.
+
+As on both the HSI and airspeed indicator, the altimeter features a trend vector. It works the same as the one for the airspeed indicator and HSI.
+
+To the right and attached to the altimeter is the vertical speed indicator. It is shown as a non-moving vertical tape.
+
+It is set up in the usual way with major tick marks at 1,000 and 2,000 feet per minute and minor tick marks at intervals of 500 feet per minute. 
+
+You read the actual vertical speed on the vertical speed pointer - a numerical indication begins when your climb or descent is greater than plus or minus 100 feet per minute.
+
+When using a vertical navigation feature, a magenta chevron is displayed on the MFD to indicate the required vertical speed for reaching a target altitude. 
+
+</string>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="6D5-KP-4TT" firstAttribute="top" secondItem="NBn-iI-s6A" secondAttribute="top" id="E7V-Ye-4gI"/>
+                                            <constraint firstAttribute="bottom" secondItem="6D5-KP-4TT" secondAttribute="bottom" constant="25" id="Upd-MA-pVj"/>
+                                            <constraint firstItem="6D5-KP-4TT" firstAttribute="leading" secondItem="NBn-iI-s6A" secondAttribute="leading" constant="15" id="d2v-XR-vXm"/>
+                                            <constraint firstAttribute="trailing" secondItem="6D5-KP-4TT" secondAttribute="trailing" constant="15" id="eoA-c6-3qe"/>
+                                            <constraint firstItem="6D5-KP-4TT" firstAttribute="centerX" secondItem="NBn-iI-s6A" secondAttribute="centerX" id="fg6-3z-8Wz"/>
+                                            <constraint firstItem="6D5-KP-4TT" firstAttribute="bottom" secondItem="f91-AX-29D" secondAttribute="bottom" id="z4S-Ke-y8V"/>
+                                        </constraints>
+                                        <viewLayoutGuide key="contentLayoutGuide" id="WcK-MW-3fA"/>
+                                        <viewLayoutGuide key="frameLayoutGuide" id="f91-AX-29D"/>
+                                    </scrollView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="NBn-iI-s6A" secondAttribute="bottom" constant="25" id="NQT-2f-B6S"/>
+                                    <constraint firstAttribute="trailing" secondItem="NBn-iI-s6A" secondAttribute="trailing" id="OvJ-N2-WdQ"/>
+                                    <constraint firstItem="NBn-iI-s6A" firstAttribute="leading" secondItem="xlg-4s-ADI" secondAttribute="leading" id="dlm-he-i53"/>
+                                    <constraint firstItem="NBn-iI-s6A" firstAttribute="top" secondItem="xlg-4s-ADI" secondAttribute="top" constant="25" id="kTf-jj-iUf"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8qt-zu-nFy">
+                                <rect key="frame" x="25" y="717" width="343" height="25"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="please type..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N5l-7x-5EG">
+                                        <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="25"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.0" green="0.1003791653" blue="0.097921882139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="Tz6-PF-oS2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8g-Wy-EgW">
+                                        <rect key="frame" x="201.66666666666666" y="0.0" width="44" height="25"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="paperplane.circle" catalog="system">
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="sendButtonTapped:" destination="ky5-Gf-rBJ" eventType="touchUpInside" id="QjU-D4-8lK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5h-I4-vyg">
+                                        <rect key="frame" x="250.66666666666666" y="0.0" width="43.666666666666657" height="25"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="photo.fill.on.rectangle.fill" catalog="system">
+                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="galleryButtonTapped:" destination="ky5-Gf-rBJ" eventType="touchUpInside" id="WWT-x3-4Ro"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0w-he-dcf">
+                                        <rect key="frame" x="299.33333333333331" y="0.0" width="43.666666666666686" height="25"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.0" green="0.035510516739999998" blue="0.1003791653" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" image="camera" catalog="system">
+                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="takePicButtonTapped:" destination="ky5-Gf-rBJ" eventType="touchUpInside" id="A2l-jm-X4j"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="e5h-I4-vyg" firstAttribute="width" secondItem="e8g-Wy-EgW" secondAttribute="width" id="dFk-4W-rHt"/>
+                                    <constraint firstItem="N5l-7x-5EG" firstAttribute="width" secondItem="e8g-Wy-EgW" secondAttribute="width" multiplier="4.5" id="vRF-46-m23"/>
+                                    <constraint firstItem="t0w-he-dcf" firstAttribute="width" secondItem="e8g-Wy-EgW" secondAttribute="width" id="wAG-Rj-r8O"/>
+                                    <constraint firstItem="e5h-I4-vyg" firstAttribute="height" secondItem="e8g-Wy-EgW" secondAttribute="height" id="xTe-66-5SD"/>
+                                </constraints>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zG2-o9-9P4">
+                                <rect key="frame" x="149" y="767" width="95" height="25"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Create">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="r2X-Vp-gh1"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="xlg-4s-ADI" firstAttribute="leading" secondItem="r2X-Vp-gh1" secondAttribute="leading" id="0hQ-if-hgs"/>
+                            <constraint firstItem="r2X-Vp-gh1" firstAttribute="trailing" secondItem="8qt-zu-nFy" secondAttribute="trailing" constant="25" id="4yu-FM-7Lz"/>
+                            <constraint firstItem="8qt-zu-nFy" firstAttribute="top" secondItem="xlg-4s-ADI" secondAttribute="bottom" constant="25" id="EiI-Bm-UMb"/>
+                            <constraint firstItem="zG2-o9-9P4" firstAttribute="height" secondItem="N5l-7x-5EG" secondAttribute="height" id="Gcz-2y-yFf"/>
+                            <constraint firstAttribute="bottom" secondItem="zG2-o9-9P4" secondAttribute="bottom" constant="50" id="JRe-Sj-wGY"/>
+                            <constraint firstItem="r2X-Vp-gh1" firstAttribute="trailing" secondItem="xlg-4s-ADI" secondAttribute="trailing" id="Ktc-Dw-Mp8"/>
+                            <constraint firstItem="8qt-zu-nFy" firstAttribute="leading" secondItem="r2X-Vp-gh1" secondAttribute="leading" constant="25" id="UCk-fi-Csb"/>
+                            <constraint firstItem="r2X-Vp-gh1" firstAttribute="trailing" secondItem="zG2-o9-9P4" secondAttribute="trailing" constant="149" id="flh-Fj-m49"/>
+                            <constraint firstItem="xlg-4s-ADI" firstAttribute="top" secondItem="r2X-Vp-gh1" secondAttribute="top" id="h8J-iE-y7X"/>
+                            <constraint firstItem="zG2-o9-9P4" firstAttribute="top" secondItem="8qt-zu-nFy" secondAttribute="bottom" constant="25" id="iMe-zP-uvs"/>
+                            <constraint firstItem="zG2-o9-9P4" firstAttribute="leading" secondItem="r2X-Vp-gh1" secondAttribute="leading" constant="149" id="ydP-jg-wEJ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="M6a-V8-XoL"/>
+                    <connections>
+                        <outlet property="buttonStack" destination="8qt-zu-nFy" id="Wpw-kk-ngy"/>
+                        <outlet property="createButton" destination="zG2-o9-9P4" id="Cpd-WR-HUr"/>
+                        <outlet property="galleryButton" destination="e5h-I4-vyg" id="c3E-7S-kL2"/>
+                        <outlet property="sendButton" destination="e8g-Wy-EgW" id="Flt-wN-5e0"/>
+                        <outlet property="takePicButton" destination="t0w-he-dcf" id="oWz-e6-aOu"/>
+                        <outlet property="textField" destination="N5l-7x-5EG" id="iE9-Pb-70E"/>
+                        <outlet property="textView" destination="6D5-KP-4TT" id="PBg-Tx-N6x"/>
+                        <segue destination="6fz-JP-MNc" kind="show" identifier="toImageVC" id="tuJ-7m-gAL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Rhs-6W-xxk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1855.7251908396945" y="-206.33802816901411"/>
+        </scene>
+        <!--ImageVC-->
+        <scene sceneID="2SS-ei-bKE">
+            <objects>
+                <viewController id="6fz-JP-MNc" customClass="ImageVC" customModule="MA" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pyD-r5-4gi">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l9j-6J-TGF">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="757.66666666666663"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uip-fA-FaW">
+                                <rect key="frame" x="161" y="782.66666666666663" width="71" height="34.333333333333371"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="square.and.arrow.up.fill" catalog="system">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="recognizeButtonTapped:" destination="6fz-JP-MNc" eventType="touchUpInside" id="HeV-B6-Ajx"/>
+                                    <segue destination="ky5-Gf-rBJ" kind="show" identifier="ToTextVC" id="bFN-Uw-D4l"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="vv4-YQ-V6t">
+                                <rect key="frame" x="178" y="339" width="37" height="130"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lo0-2Y-5XH"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="l9j-6J-TGF" firstAttribute="leading" secondItem="lo0-2Y-5XH" secondAttribute="leading" id="2ZR-Eo-U5g"/>
+                            <constraint firstItem="vv4-YQ-V6t" firstAttribute="leading" secondItem="pyD-r5-4gi" secondAttribute="leadingMargin" constant="162" id="4D3-ve-pCw"/>
+                            <constraint firstItem="lo0-2Y-5XH" firstAttribute="trailing" secondItem="uip-fA-FaW" secondAttribute="trailing" constant="161" id="Cac-os-2oL"/>
+                            <constraint firstItem="lo0-2Y-5XH" firstAttribute="trailing" secondItem="l9j-6J-TGF" secondAttribute="trailing" id="HOU-d9-04o"/>
+                            <constraint firstItem="l9j-6J-TGF" firstAttribute="trailing" secondItem="lo0-2Y-5XH" secondAttribute="trailing" id="Nv2-Hb-Y2x"/>
+                            <constraint firstItem="uip-fA-FaW" firstAttribute="top" secondItem="l9j-6J-TGF" secondAttribute="bottom" constant="25" id="Qyr-tD-uMl"/>
+                            <constraint firstItem="lo0-2Y-5XH" firstAttribute="bottom" secondItem="uip-fA-FaW" secondAttribute="bottom" constant="25.000000000000114" id="XAs-kh-nBP"/>
+                            <constraint firstItem="vv4-YQ-V6t" firstAttribute="top" secondItem="lo0-2Y-5XH" secondAttribute="top" constant="339" id="dlw-AG-FC7"/>
+                            <constraint firstItem="uip-fA-FaW" firstAttribute="centerX" secondItem="vv4-YQ-V6t" secondAttribute="centerX" id="fy8-fr-lFa"/>
+                            <constraint firstItem="l9j-6J-TGF" firstAttribute="leading" secondItem="lo0-2Y-5XH" secondAttribute="leading" id="gFI-Vl-foO"/>
+                            <constraint firstItem="l9j-6J-TGF" firstAttribute="top" secondItem="lo0-2Y-5XH" secondAttribute="top" id="hBu-OI-nOD"/>
+                            <constraint firstItem="l9j-6J-TGF" firstAttribute="top" secondItem="lo0-2Y-5XH" secondAttribute="top" id="nAq-dc-Hte"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="vv4-YQ-V6t" secondAttribute="bottom" constant="373" id="rL8-vr-Vj3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vv4-YQ-V6t" secondAttribute="trailing" constant="162" id="uw7-cG-Lrv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="PmN-o2-hYp"/>
+                    <connections>
+                        <outlet property="activityIndic" destination="vv4-YQ-V6t" id="vgH-Jb-aL7"/>
+                        <outlet property="imageView" destination="l9j-6J-TGF" id="5EJ-0B-R1G"/>
+                        <outlet property="recognizeButton" destination="uip-fA-FaW" id="Npt-PG-SC3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pI5-ln-0Ui" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2719.8473282442746" y="-206.33802816901411"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Nz8-LO-QJR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9mY-qY-xsG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mkb-Y4-O66">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="2bg-Ej-oa9" kind="relationship" relationship="rootViewController" id="mRZ-rD-0e6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nby-rV-KrP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="26.717557251908396" y="19.718309859154932"/>
+        </scene>
+    </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="bFN-Uw-D4l"/>
+    </inferredMetricsTieBreakers>
+    <resources>
+        <image name="camera" catalog="system" width="128" height="93"/>
+        <image name="paperplane.circle" catalog="system" width="128" height="123"/>
+        <image name="photo.fill.on.rectangle.fill" catalog="system" width="128" height="102"/>
+        <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
