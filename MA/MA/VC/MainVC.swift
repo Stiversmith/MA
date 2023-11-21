@@ -1,9 +1,4 @@
 //
-//  MainVC.swift
-//  MA
-//
-//  Created by Aliaksandr Yashchuk on 11/12/23.
-//
 
 import UIKit
 
