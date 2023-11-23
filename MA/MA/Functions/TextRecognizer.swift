@@ -3,7 +3,6 @@ import UIKit
 import Vision
 
 class TextRecognizer {
-    
     static func recognizeText(from image: UIImage, completion: @escaping (String) -> Void) {
         guard let cgImage = image.cgImage else { return }
         
@@ -18,9 +17,9 @@ class TextRecognizer {
                 return
             }
             
-        var recognizedText = ""
-        for observation in observations {
-            guard let topCandidate = observation.topCandidates(1).first else { continue }
+            var recognizedText = ""
+            for observation in observations {
+                guard let topCandidate = observation.topCandidates(1).first else { continue }
                 recognizedText += topCandidate.string + "\n"
             }
             completion(recognizedText)
@@ -37,8 +36,8 @@ class TextRecognizer {
     }
     
     static func getWordCount(from text: String) -> Int {
-            let components = text.components(separatedBy: .whitespacesAndNewlines)
-            let filteredComponents = components.filter { !$0.isEmpty }
-            return filteredComponents.count
-        }
+        let components = text.components(separatedBy: .whitespacesAndNewlines)
+        let filteredComponents = components.filter { !$0.isEmpty }
+        return filteredComponents.count
+    }
 }
