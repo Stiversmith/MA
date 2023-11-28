@@ -14,6 +14,7 @@
 		B81763C62B019B6F000DA7DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B81763C42B019B6F000DA7DC /* LaunchScreen.storyboard */; };
 		B81763D02B01A3EE000DA7DC /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81763CF2B01A3EE000DA7DC /* MainVC.swift */; };
 		B81763D22B01B836000DA7DC /* TextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81763D12B01B836000DA7DC /* TextVC.swift */; };
+		B81C28622B15877300B3F106 /* DictionaryLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81C28612B15877300B3F106 /* DictionaryLists.swift */; };
 		B8C435112B01F6D7009E21C3 /* Drafts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C435102B01F6D7009E21C3 /* Drafts.swift */; };
 		B8C435152B01FE08009E21C3 /* ImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C435142B01FE08009E21C3 /* ImageVC.swift */; };
 		B8C435182B02AFB8009E21C3 /* TextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C435172B02AFB8009E21C3 /* TextRecognizer.swift */; };
@@ -38,6 +39,7 @@
 		B81763C72B019B6F000DA7DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B81763CF2B01A3EE000DA7DC /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		B81763D12B01B836000DA7DC /* TextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextVC.swift; sourceTree = "<group>"; };
+		B81C28612B15877300B3F106 /* DictionaryLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryLists.swift; sourceTree = "<group>"; };
 		B8C435102B01F6D7009E21C3 /* Drafts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drafts.swift; sourceTree = "<group>"; };
 		B8C435142B01FE08009E21C3 /* ImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVC.swift; sourceTree = "<group>"; };
 		B8C435172B02AFB8009E21C3 /* TextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizer.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				B8C4351F2B03112E009E21C3 /* WordLists.swift */,
+				B81C28612B15877300B3F106 /* DictionaryLists.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				B81763BC2B019B6E000DA7DC /* SceneDelegate.swift in Sources */,
 				B8C435202B03112E009E21C3 /* WordLists.swift in Sources */,
 				B8C435332B06F6DB009E21C3 /* Storage.swift in Sources */,
+				B81C28622B15877300B3F106 /* DictionaryLists.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
