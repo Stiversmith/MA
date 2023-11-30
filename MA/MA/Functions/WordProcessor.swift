@@ -33,7 +33,7 @@ class WordProcessor {
                 continue
             }
             
-            // Пропускаем слова, состоящие только из гласных или только из согласных
+            // Пропускаем гласные и согл
             let vowels = CharacterSet(charactersIn: "aeiouAEIOU")
             let consonants = CharacterSet.letters.subtracting(vowels)
             

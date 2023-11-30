@@ -1,25 +1,30 @@
 
-import RealmSwift
 import UIKit
+import RealmSwift
 
 class DictionaryTVC: UITableViewController {
     var words: [String] = []
-    var wordLists: WordLists
+    var wordLists: Results<WordLists>!
     var wordProcessor: WordProcessor
     var delegate: TextVC?
     var selectedSentence: String?
     
-    init(wordLists: WordLists) {
+    init(wordLists: Results<WordLists>) {
         self.wordLists = wordLists
         self.wordProcessor = WordProcessor()
         super.init(nibName: nil, bundle: nil)
     }
 
     required init?(coder aDecoder: NSCoder) {
-        self.wordLists = WordLists(nouns: [""], verbs: [""], adjectives: [""], adverbs: [""], pronouns: [""], prepositions: [""], conjunctions: [""], negativeParticles: [""], articles: [""], interjections: [""])
-        self.wordProcessor = WordProcessor()
-        super.init(coder: aDecoder)
+           self.wordLists = try? Realm().objects(WordLists.self)
+           self.wordProcessor = WordProcessor()
+           super.init(coder: aDecoder)
     }
+    
+    @IBAction func addWord(_ sender: Any) {
+        alertForAddAndUpdatesListTasks()
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,15 +60,6 @@ class DictionaryTVC: UITableViewController {
         let word = words[indexPath.row]
         cell.textLabel?.text = word
         
-        let partOfSpeech = WordLists.getPartOfSpeech(for: word)
-        cell.detailTextLabel?.text = partOfSpeech
-        
-        if partOfSpeech == "Multiple" {
-            cell.detailTextLabel?.textColor = .red
-        } else {
-            cell.detailTextLabel?.textColor = .black
-        }
-        
         return cell
     }
     
@@ -77,6 +73,27 @@ class DictionaryTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
+    }
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let currentWord = wordLists[indexPath.row]
+        
+        let deleteContextualAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, _ in
+            StorageManager.deleteWord(words: currentWord)
+//            self?.tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+        let editContextualAction = UIContextualAction(style: .destructive, title: "Edit") { [weak self] _, _, _ in
+            self?.alertForAddAndUpdatesListTasks(currentWord: currentWord, indexPath: indexPath)
+        }
+        
+   //     deleteContextualAction.backgroundColor = .gray
+        editContextualAction.backgroundColor = .gray
+        
+        let swipeActionsConfiguration = UISwipeActionsConfiguration(actions: [editContextualAction, deleteContextualAction])  // deleteContextualAction
+
+        return swipeActionsConfiguration
     }
     
     private func processWords() {
@@ -110,5 +127,46 @@ class DictionaryTVC: UITableViewController {
             }
         }
         return nil
+    }
+    
+    private func alertForAddAndUpdatesListTasks(currentWord: WordLists? = nil, indexPath: IndexPath? = nil) {
+        
+        let title = currentWord == nil ? "New word" : "Edit"
+        let messege = "Please insert new word"
+        let doneButtonName = currentWord == nil ? "Save" : "Update"
+        
+        let alertController = UIAlertController(title: title, message: messege, preferredStyle: .alert)
+        
+        var alertTextField: UITextField!
+        
+        let saveAction = UIAlertAction(title: doneButtonName, style: .default) { [weak self] _ in
+            
+            guard let self,
+                  let newWord = alertTextField.text,
+                  !newWord.isEmpty else { return }
+            
+            if let currentWord = currentWord,
+               let indexPath = indexPath {
+                StorageManager.editWord(word: currentWord, newWord: newWord)
+            } else {
+
+                let wordLists = WordLists()
+                wordLists.words = newWord
+                StorageManager.saveWord(words: wordLists)
+            }
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        
+        alertController.addAction(saveAction)
+        alertController.addAction(cancelAction)
+        
+        alertController.addTextField { textField in
+            alertTextField = textField
+            alertTextField.text = currentWord?.words
+            alertTextField.placeholder = "a new word"
+        }
+        
+        present(alertController, animated: true)
     }
 }

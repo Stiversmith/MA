@@ -6,14 +6,25 @@
 //
 
 import UIKit
+import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
+    var window: UIWindow?
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+              let realmURL = Realm.Configuration.defaultConfiguration.fileURL
+              print("Realm file path: \(realmURL?.absoluteString ?? "Not available")")
+              let config = Realm.Configuration(
+                  schemaVersion: 1,
+                  migrationBlock: { migration, oldSchemaVersion in
+                      if oldSchemaVersion < 1 {
+                      }
+                  })
+
+              Realm.Configuration.defaultConfiguration = config
         return true
     }
 

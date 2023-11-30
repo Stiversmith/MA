@@ -78,11 +78,18 @@
                             <outlet property="delegate" destination="mfL-MM-65r" id="16e-GX-I5H"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="n9P-rJ-4PP"/>
+                    <navigationItem key="navigationItem" id="n9P-rJ-4PP">
+                        <barButtonItem key="rightBarButtonItem" image="arrow.right.doc.on.clipboard" catalog="system" id="9Qc-OB-MfS">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="addWord:" destination="mfL-MM-65r" id="4gN-8m-4BW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I1a-fS-sdH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1857.2519083969464" y="489.43661971830988"/>
+            <point key="canvasLocation" x="2720" y="525"/>
         </scene>
         <!--TextVC-->
         <scene sceneID="34V-Ak-lXr">
@@ -101,7 +108,7 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="6D5-KP-4TT">
                                                 <rect key="frame" x="15" y="0.0" width="363" height="549"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <mutableString key="text">Night Flying
+                                                <string key="text">Night Flying
 A part of flight training that you will find both interesting and different is flying at night. 
 
 In just a moment, we'll take a brief night flight and cover the major aspects of night flying for pilots who have flown only during daylight. 
@@ -2785,7 +2792,7 @@ You'll learn it early and thoroughly and when you hear some old timer grumbling 
 
 
 22. Wrap Up - Going Places
-Here we are again at the end of another volume.  You have passed another milestone: you're beginning to pilot your craft from place to place. As the old saying goes, "If you don't learn something from each flight, you're not paying attention." In your logbook, under remarks, log what you learned and the circumstances surrounding that lesson. So, learn from each flight, have fun, and until we meet again, I'm Rob Reider, so long.</mutableString>
+Here we are again at the end of another volume.  You have passed another milestone: you're beginning to pilot your craft from place to place. As the old saying goes, "If you don't learn something from each flight, you're not paying attention." In your logbook, under remarks, log what you learned and the circumstances surrounding that lesson. So, learn from each flight, have fun, and until we meet again, I'm Rob Reider, so long.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2992,8 +2999,27 @@ Here we are again at the end of another volume.  You have passed another milesto
             </objects>
             <point key="canvasLocation" x="26.717557251908396" y="19.718309859154932"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="JkJ-VG-0mC">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l9f-YJ-16j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CTX-G4-jNW" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HY4-Vx-ec8">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="mfL-MM-65r" kind="relationship" relationship="rootViewController" id="TOk-gu-RZe"/>
+                    </connections>
+                </navigationController>
+            </objects>
+            <point key="canvasLocation" x="1856" y="525"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="arrow.right.doc.on.clipboard" catalog="system" width="116" height="128"/>
         <image name="camera" catalog="system" width="128" height="93"/>
         <image name="paperplane.circle" catalog="system" width="128" height="123"/>
         <image name="photo.fill.on.rectangle.fill" catalog="system" width="128" height="102"/>
