@@ -1,6 +1,5 @@
-
-import UIKit
 import RealmSwift
+import UIKit
 
 class DictionaryTVC: UITableViewController {
     var words: [String] = []
@@ -16,15 +15,14 @@ class DictionaryTVC: UITableViewController {
     }
 
     required init?(coder aDecoder: NSCoder) {
-           self.wordLists = try? Realm().objects(WordLists.self)
-           self.wordProcessor = WordProcessor()
-           super.init(coder: aDecoder)
+        self.wordLists = try? Realm().objects(WordLists.self)
+        self.wordProcessor = WordProcessor()
+        super.init(coder: aDecoder)
     }
     
     @IBAction func addWord(_ sender: Any) {
-        alertForAddAndUpdatesListTasks()
+        alertForAddAndUpdatesWords()
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,29 +74,37 @@ class DictionaryTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
         let currentWord = wordLists[indexPath.row]
         
         let deleteContextualAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, _ in
-            StorageManager.deleteWord(words: currentWord)
-//            self?.tableView.deleteRows(at: [indexPath], with: .fade)
+            StorageManager.deleteWord(word: currentWord)
+            self?.words.remove(at: indexPath.row)
+            self?.tableView.beginUpdates()
+            self?.tableView.deleteRows(at: [indexPath], with: .fade)
+            self?.tableView.endUpdates()
         }
         
         let editContextualAction = UIContextualAction(style: .destructive, title: "Edit") { [weak self] _, _, _ in
-            self?.alertForAddAndUpdatesListTasks(currentWord: currentWord, indexPath: indexPath)
+            self?.alertForAddAndUpdatesWords(currentWord: currentWord, indexPath: indexPath)
         }
         
-   //     deleteContextualAction.backgroundColor = .gray
+        deleteContextualAction.backgroundColor = .black
         editContextualAction.backgroundColor = .gray
         
-        let swipeActionsConfiguration = UISwipeActionsConfiguration(actions: [editContextualAction, deleteContextualAction])  // deleteContextualAction
-
+        let swipeActionsConfiguration = UISwipeActionsConfiguration(actions: [editContextualAction, deleteContextualAction])
         return swipeActionsConfiguration
     }
     
     private func processWords() {
         let uniqueWords = WordProcessor.processWords(words)
-        words = uniqueWords
+        words = uniqueWords.sorted()
+        tableView.reloadData()
+
+        for word in uniqueWords {
+            let wordObject = WordLists()
+            wordObject.words = word
+            StorageManager.saveWord(word: wordObject)
+        }
     }
     
     private func showAlert(withText text: String, forWord word: String) {
@@ -108,7 +114,7 @@ class DictionaryTVC: UITableViewController {
             alertController.addAction(okAction)
             present(alertController, animated: true, completion: nil)
         } else {
-            let alertController = UIAlertController(title: "Alert", message: "Sorry, I forgot where that word was.", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Alert", message: "Извини, не помню откуда это слово взялось", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(okAction)
             present(alertController, animated: true, completion: nil)
@@ -129,30 +135,32 @@ class DictionaryTVC: UITableViewController {
         return nil
     }
     
-    private func alertForAddAndUpdatesListTasks(currentWord: WordLists? = nil, indexPath: IndexPath? = nil) {
-        
+    private func alertForAddAndUpdatesWords(currentWord: WordLists? = nil, indexPath: IndexPath? = nil) {
         let title = currentWord == nil ? "New word" : "Edit"
-        let messege = "Please insert new word"
+        let message = "Please insert a new word"
         let doneButtonName = currentWord == nil ? "Save" : "Update"
         
-        let alertController = UIAlertController(title: title, message: messege, preferredStyle: .alert)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         var alertTextField: UITextField!
         
         let saveAction = UIAlertAction(title: doneButtonName, style: .default) { [weak self] _ in
-            
-            guard let self,
-                  let newWord = alertTextField.text,
-                  !newWord.isEmpty else { return }
-            
-            if let currentWord = currentWord,
-               let indexPath = indexPath {
-                StorageManager.editWord(word: currentWord, newWord: newWord)
-            } else {
+            guard let self, let newWord = alertTextField.text, !newWord.isEmpty else { return }
 
-                let wordLists = WordLists()
-                wordLists.words = newWord
-                StorageManager.saveWord(words: wordLists)
+            if let currentWord = currentWord,
+               let _ = indexPath
+            {
+                StorageManager.editWord(word: currentWord, newWord: newWord)
+                self.words.append(newWord)
+                processWords()
+                self.tableView.reloadData()
+            } else {
+                let wordObject = WordLists()
+                wordObject.words = newWord
+                StorageManager.saveWord(word: wordObject)
+                self.words.append(newWord)
+                processWords()
+                self.tableView.reloadData()
             }
         }
         
@@ -163,7 +171,6 @@ class DictionaryTVC: UITableViewController {
         
         alertController.addTextField { textField in
             alertTextField = textField
-            alertTextField.text = currentWord?.words
             alertTextField.placeholder = "a new word"
         }
         
