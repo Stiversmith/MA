@@ -12,8 +12,8 @@ class WordProcessor {
         for word in words {
             let letters = CharacterSet.letters
             let filteredWord = word.filter { letters.contains(UnicodeScalar(String($0))!) }
-            
             var wordToAdd = filteredWord
+            
             if let lastCharacter = wordToAdd.last {
                 let lastScalar = lastCharacter.unicodeScalars
                 
@@ -54,6 +54,6 @@ class WordProcessor {
         
         let uniqueWordsArray = uniqueWords.filter { !$0.value }.map { $0.key }
         
-        return uniqueWordsArray.sorted()
+       return uniqueWordsArray.sorted()
     }
 }

@@ -10,15 +10,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Realm file path: \(realmURL?.absoluteString ?? "Not available")")
 
         let config = Realm.Configuration(
-            schemaVersion: 2,
+            schemaVersion: 3,
             migrationBlock: { _, oldSchemaVersion in
-                if oldSchemaVersion < 2 {}
+                if oldSchemaVersion < 3 {}
             }
         )
 
         Realm.Configuration.defaultConfiguration = config
 
-        let realm = try! Realm()
+        do {
+            let realm = try Realm()
+
+            realm.beginWrite()
+
+            try realm.commitWrite()
+        } catch {
+            print("Error initializing Realm: \(error)")
+        }
 
         return true
     }
