@@ -1,4 +1,6 @@
 
+// настроить @IBOutlet weak var actInd: UIActivityIndicatorView!
+
 import UIKit
 import Vision
 
@@ -12,6 +14,7 @@ class TextVC: UIViewController, UINavigationControllerDelegate,
     @IBOutlet var createButton: UIButton!
     @IBOutlet var galleryButton: UIButton!
     @IBOutlet var buttonStack: UIStackView!
+    @IBOutlet weak var actInd: UIActivityIndicatorView!
     
     weak var delegate: TextVCDelegate?
     var text: String?
@@ -79,6 +82,7 @@ class TextVC: UIViewController, UINavigationControllerDelegate,
             }
 
             dictionaryTVC.delegate = self
+            
             navigationController?.pushViewController(dictionaryTVC, animated: true)
         }
     }

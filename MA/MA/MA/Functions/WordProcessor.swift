@@ -10,7 +10,6 @@ class WordProcessor {
         var uniqueWords: [String: Bool] = [:]
         
         for word in words {
-            // Удаляем символы, отличные от букв
             let letters = CharacterSet.letters
             let filteredWord = word.filter { letters.contains(UnicodeScalar(String($0))!) }
             
@@ -27,13 +26,11 @@ class WordProcessor {
                 wordToAdd = String(wordToAdd.prefix(upTo: apostropheIndex))
             }
             
-            // Пропускаем слова "a", "an", "the", "any", "am", "pm"
-            let skipWords = ["a", "an", "the", "any", "am", "pm"]
+            let skipWords = ["a", "are", "an", "the", "any", "am", "pm"]
             if skipWords.contains(wordToAdd.lowercased()) {
                 continue
             }
             
-            // Пропускаем гласные и согл
             let vowels = CharacterSet(charactersIn: "aeiouAEIOU")
             let consonants = CharacterSet.letters.subtracting(vowels)
             
@@ -47,7 +44,6 @@ class WordProcessor {
                 let isPlural = wordToAdd.hasSuffix("s")
                 let ingWord = wordToAdd + "ing"
                 
-                // Проверяем наличие слова без окончания "ing" и удаляем соответствующее слово с окончанием "ing"
                 if uniqueWords.keys.contains(ingWord) {
                     uniqueWords.removeValue(forKey: ingWord)
                 } else {
