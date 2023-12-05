@@ -1,24 +1,29 @@
-//
-
 import UIKit
+import Lottie
+
+protocol AnimationControllerProtocol {
+    func setupUI(in container: UIStackView)
+    func playAnimation()
+}
+
 
 class MainVC: UIViewController {
-
+    
+    @IBOutlet weak var textBtn: UIButton!
+    @IBOutlet weak var dictionaryBtn: UIButton!
+    @IBOutlet weak var stackView: UIStackView!
+    @IBOutlet weak var stackViewS: UIStackView!
+    
+    private var animationController: AnimationControllerProtocol!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        let animationViewName = "wired-lineal-35-edit"
+        let animationSpeed: CGFloat = 0.6
+        
+        animationController = AnimationController(animationViewName: animationViewName, animationSpeed: animationSpeed)
+        animationController.setupUI(in: stackView)
+        animationController.playAnimation()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -1,9 +1,22 @@
-
 import Foundation
 import RealmSwift
 
 class WordLists: Object {
-    @Persisted(primaryKey: true) var id: ObjectId
-    @Persisted var words = ""
-    @Persisted var dictionarys = List<DictionaryLists>()
+    @objc dynamic var words: String = ""
+    @objc dynamic var translation: String = ""
+    private let translater = Translater()
+    
+    func updateTranslation(realm: Realm?, completion: @escaping (String?) -> Void) {
+        translater.translate(word: words) { translation in
+            if let translation = translation {
+                try? realm?.write {
+                    self.translation = translation
+                }
+                completion(translation)
+            } else {
+                print("Translation failed.")
+                completion(nil)
+            }
+        }
+    }
 }

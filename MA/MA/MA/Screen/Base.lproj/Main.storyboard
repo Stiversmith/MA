@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -16,11 +15,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="eo0-z4-aXX">
-                                <rect key="frame" x="140.66666666666666" y="401.33333333333331" width="112" height="118.66666666666669"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="eo0-z4-aXX" userLabel="Stack View S">
+                                <rect key="frame" x="135" y="415.66666666666669" width="123" height="150.00000000000006"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yv3-Ug-SaV">
-                                        <rect key="frame" x="0.0" y="0.0" width="112" height="34.333333333333336"/>
+                                    <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yv3-Ug-SaV">
+                                        <rect key="frame" x="0.0" y="0.0" width="123" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="di1-tr-hBH"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="gray" title="TEXT">
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -31,25 +34,51 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mjc-cP-4ND">
-                                        <rect key="frame" x="0.0" y="84.333333333333371" width="112" height="34.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="99.999999999999943" width="123" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="DICTINORY">
+                                        <buttonConfiguration key="configuration" style="gray" title="DICTIONARY">
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstItem="yv3-Ug-SaV" firstAttribute="height" secondItem="Mjc-cP-4ND" secondAttribute="height" id="YeK-gS-TcM"/>
+                                </constraints>
                             </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="ref-qZ-OaP">
+                                <rect key="frame" x="100" y="150" width="193" height="255.66666666666663"/>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="all rights reserved. 2024" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hZp-Tn-Lwe">
+                                <rect key="frame" x="25" y="806" width="343" height="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ptp-MR-wYx"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="eo0-z4-aXX" firstAttribute="centerY" secondItem="ptp-MR-wYx" secondAttribute="centerY" id="E3g-WK-6Zb"/>
+                            <constraint firstItem="ref-qZ-OaP" firstAttribute="top" secondItem="OYl-W6-J0l" secondAttribute="top" constant="150" id="8Rw-ap-RLz"/>
+                            <constraint firstItem="ptp-MR-wYx" firstAttribute="trailing" secondItem="hZp-Tn-Lwe" secondAttribute="trailing" constant="25" id="CVS-fh-cWD"/>
+                            <constraint firstItem="eo0-z4-aXX" firstAttribute="centerY" secondItem="ptp-MR-wYx" secondAttribute="centerY" constant="30" id="E3g-WK-6Zb"/>
+                            <constraint firstItem="eo0-z4-aXX" firstAttribute="top" secondItem="ref-qZ-OaP" secondAttribute="bottom" constant="10" id="HXp-vd-p3W"/>
+                            <constraint firstItem="hZp-Tn-Lwe" firstAttribute="bottom" secondItem="ptp-MR-wYx" secondAttribute="bottom" id="J4X-B7-2yZ"/>
+                            <constraint firstItem="hZp-Tn-Lwe" firstAttribute="leading" secondItem="ptp-MR-wYx" secondAttribute="leading" constant="25" id="JoL-SM-pdG"/>
+                            <constraint firstItem="ref-qZ-OaP" firstAttribute="leading" secondItem="ptp-MR-wYx" secondAttribute="leading" constant="100" id="Sx3-eP-D3Y"/>
+                            <constraint firstItem="ptp-MR-wYx" firstAttribute="trailing" secondItem="ref-qZ-OaP" secondAttribute="trailing" constant="100" id="YBk-c2-8Ds"/>
                             <constraint firstItem="eo0-z4-aXX" firstAttribute="centerX" secondItem="ptp-MR-wYx" secondAttribute="centerX" id="Ycq-qK-es6"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="jLd-fr-CcW"/>
+                    <connections>
+                        <outlet property="dictionaryBtn" destination="Mjc-cP-4ND" id="YSn-3a-tcE"/>
+                        <outlet property="stackView" destination="ref-qZ-OaP" id="N9D-Yi-lGQ"/>
+                        <outlet property="stackViewS" destination="eo0-z4-aXX" id="IWM-ss-RsI"/>
+                        <outlet property="textBtn" destination="yv3-Ug-SaV" id="rxJ-Dw-aq5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hJs-Al-h8v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -59,18 +88,49 @@
         <scene sceneID="F5T-DB-cEu">
             <objects>
                 <tableViewController storyboardIdentifier="DictionaryTVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mfL-MM-65r" customClass="DictionaryTVC" customModule="MA" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="i9v-Yb-Hxa">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="i9v-Yb-Hxa">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.0" green="0.1003791653" blue="0.097921882139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="separatorColor" red="0.0" green="0.1003791653" blue="0.097921882139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexTrackingBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" barStyle="blackTranslucent" searchBarStyle="prominent" placeholder="start type..." id="h0R-MI-QOv">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="f52-4R-XZa">
-                                <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="cyW-0s-Hv5" detailTextLabel="BKD-EL-DG1" style="IBUITableViewCellStyleValue1" id="f52-4R-XZa">
+                                <rect key="frame" x="0.0" y="94" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f52-4R-XZa" id="JhO-4M-jKm">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="cyW-0s-Hv5">
+                                            <rect key="frame" x="20" y="15" width="25" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="BKD-EL-DG1">
+                                            <rect key="frame" x="340.33333333333331" y="15" width="32.666666666666664" height="14.333333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -79,13 +139,27 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="n9P-rJ-4PP">
-                        <barButtonItem key="rightBarButtonItem" image="arrow.right.doc.on.clipboard" catalog="system" id="9Qc-OB-MfS">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="addWord:" destination="mfL-MM-65r" id="4gN-8m-4BW"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="minus.circle.fill" catalog="system" id="Nc6-XH-ovP">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="deleteAll:" destination="mfL-MM-65r" id="3s6-6k-hTJ"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="arrow.right.doc.on.clipboard" catalog="system" id="9Qc-OB-MfS">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="addWord:" destination="mfL-MM-65r" id="4gN-8m-4BW"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="building.columns" catalog="system" id="3GL-9J-eT1">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="h0R-MI-QOv" id="AeO-dC-ied"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I1a-fS-sdH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -100,15 +174,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xlg-4s-ADI">
-                                <rect key="frame" x="0.0" y="103" width="393" height="599"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="582"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBn-iI-s6A">
-                                        <rect key="frame" x="0.0" y="25" width="393" height="549"/>
+                                        <rect key="frame" x="0.0" y="25" width="393" height="542"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="6D5-KP-4TT">
-                                                <rect key="frame" x="15" y="0.0" width="363" height="549"/>
-                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <mutableString key="text">A constant bank turn makes a circle in the air, but wind drift affects the ground track.
+                                                <rect key="frame" x="5" y="0.0" width="383" height="542"/>
+                                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <string key="text">A constant bank turn makes a circle in the air, but wind drift affects the ground track.
 
 Let's look at the ground paths of constant bank turns under different wind conditions.
 The turn started and finished in a direct headwind makes this path over the ground.
@@ -125,303 +200,9 @@ The circle is centered on a point on the ground with a 20 knot wind and a true a
 
 This is the highest groundspeed during the turn and on this heading the airplane would depart from the intended circle at the highest speed.
 
-To compensate for the high groundspeed, we need to increase the rate of turn by increasing the bank. As the airplane turns from a direct tailwind, the groundspeed starts decreasing.
 
-The pilot must shallow the bank to keep the airplane from flying towards the center of the circle.
-Ground speed is at its lowest when the airplane is headed directly into the wind. At this point the groundspeed is 80 knots and the bank is at its shallowest.
-
-As the turn continues, the headwind effect decreases and groundspeed starts increasing. Bank is gradually steepened until the greatest bank is reached when the airplane is headed directly 
-downwind. At this point the groundspeed is again 120 knots.
-
-In s-turns across a road, the airplane makes semi circles of equal size on each side of a straight line on the ground.
-
-This line should be at a right angle to the wind.Roads, railroad tracks or fence lines can be used. The maneuver starts at a right angle to the road.
-
-Over the road, a 180 degree turn is made to trace a uniform semi circle, completing the turn over the road with wings level, at a right angle to the road. 
-
-Then a turn in the opposite direction is immediately started to trace an identical semi circle on the other side.
-This turn is finished when the airplane is again wings level over the road.
-
-As with all ground reference maneuvers, s turns across a road are flown at an altitude between 600 and 1,000 feet above the ground. So, maintaining a constant altitude is as important as the ground track.
-
-The maneuver should be started downwind. This lets you adjust the size of the semi circle to keep from exceeding a 45 degree bank.
-
-If you enter upwind and make the semi circle too small, you might have to exceed 45 degrees of bank to make the downwind semi circle the same size.
-
-As the airplane crosses the road, a turn is started. This is the steepest bank point and the roll into the turn should be rapid.
-
-When the airplane heading changes from downwind to crosswind, the bank is decreased as groundspeed slows.
-
-At the midpoint of the semi circle the airplane will have turned more than 90 degrees. This is because the airplane is crabbed into the wind to keep from enlarging the semi circle. 
-
-The greatest crab is at the point where the airplane is directly crosswind.
-At the midpoint pick the spot where you must cross the road to keep the semi circle uniform. 
-
-From the midpoint on, bank and crab are decreased, so that when crossing the road wings level, the airplane is headed at a right angle.
-
-Now, pick the spot where you want the airplane to be halfway around the upwind semi circle.
-The moment the road is crossed, start a turn in the opposite direction. 
-
-With a direct headwind the bank will be shallowest. 
-
-When the wind changes from headwind to crosswind, the faster ground speed calls for steepening the bank.
-
-Halfway around the upwind semi circle, the airplane has turned less than 90 degrees and has the maximum crab into the wind. The distance from the road should be the same as on the downwind side. 
-
-Pick the spot where you want to cross the road. As the wind becomes a tailwind, steepen the bank to finish the 180 degrees of turn over the road.
-
-After completing the S, there are a couple of options. You could make another s turn down the road or make an s back toward the starting point.
-The other ground reference maneuver we're going to do in this video volume is "turns around a point".
-
-Doing turns around a point is as simple as putting the 2-halves of the s-turn together to trace a full circle on the ground.
-
-The maneuver involves making 2 or more complete circles at a constant altitude, while maintaining a constant distance from a point on the ground.
-
-The point you select should be prominent, but small enough to give you a precise reference.
-
-If possible, it should be something that makes it easy to pick spots to aim for every 90 degrees or so during the turns.
-
-A fence line intersection or the center of a crossroads is ideal because you can easily project ahead every 90 degrees.
-
-Because the bank may not exceed 45 degrees, you must start on a downwind heading where ground speed is highest and maximum bank is necessary.
-
-The bank and crab control is the same as used in s turns. During the first 180 degrees of turn you must shallow the bank. 
-
-When you are directly crosswind and opposite the point, you will have turned more than 90 degrees in order to crab into the wind.
-
-The bank is shallowest when the airplane is headed directly into the wind. During the second 180 degrees of turn, the headwind changes to a crosswind.
-
- When crosswind again and even with the point, you will have turned less than 90 degrees and be crabbed into the wind.
-
-From there the bank must be increased and should be steepest when the airplane is again headed directly downwind.
-
-The second turn is a repetition of the first, giving you the chance to correct errors and fine tune the maneuver.
-
-Remember to project your distance from the point ahead every 90 degrees or so. Doing this will give you some intermediate points making it easier to correct errors.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-2. Closer Look: International Flight Training
-Let's meet Sophie Gilgean. Sophie is a Belgian citizen who came to the United States and enrolled in the University of Cincinnati’s professional pilot program after getting her private license in Belgium. We asked her how her flight training in Belgium compares to the US. 
-
-Alright, so I learned to fly in Belgium. I got my private license over there. I was flying in really old Cessna 150's. 
-
-Really basic, no GPS, no VOR, no transponder, and even such a basic airplane was 160 Euros an hour which translates to around 225 dollars. So flying here is less expensive than there, definitely.
-
-Not only are rates for airplanes higher, but you pay for other things over there that are usually free here in the states.
-
-So there is other costs such as landing fees. If you land somewhere, you will have to pay a fee and if you do a touch-and-go, that fee will actually double. 
-
-And, actually one day I flew to a controlled airport and as I was taking off the controller said can I have your name and address just to send you the landing fee bill.
-
-And also, if the airport is nice, nicer, with a nice FBO or runway lights the landing fee will be higher. I've heard from people who got their instrument rating that every time you practice an approach you also have to pay for the approach. So all of those costs pile up and become very expensive.
-
-Sophie also experienced some complications while training in her homeland.
-
-When you are a student pilot, you of course have to do cross-countries. The problem is that as a student pilot you are limited to the borders of the country you are in. 
-
-So Belgium is a pretty small country. I had to do a 250 nautical miles cross-country and for that I had to do one side of the country, cross the country, go to the other side, and then come back to my home airport. So that was a little bit of a hard time planning that flight
-
-Sophie's flight training in the U-S has progressed smoothly. She has a few ideas about her future.
-
-So, since I've been here, I got my American private pilot license with my instrument rating and I just got my multiengine and after that I just want to keep on going all the way through my commercial. 
-
-But, ultimately I really would like to become a corporate pilot in the middle east like Dubai or in the emirates; somewhere over there.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-3. Steep Turns
-Now that we've completed the required ground reference maneuvers, let's take another look at turns made at constant bank. Turns with a bank of 45 degrees or more are called steep turns. Before we go out and fly steep turns, we need to take a look at Newton's first law.
-
-In part, Sir Isaac said a body in motion will continue in motion at the same speed and direction until an outside force is applied to that body. Any force applied to an airplane, to deflect it from straight flight, will produce a stress on the airplane's structure.
-
-At rest on the surface of the Earth, gravity exerts a force equal to the weight of the airplane. Gravity is expressed in Gs and on the earth's surface the force on an at-rest airplane is 1G.
-
-Aerodynamic stress on the airplane is called load factor and is the ratio of total air load to the weight of the airplane. A load factor of two means the total load on the structure is twice the weight. A load factor of two is called two Gs.
-
-This brings up the question, how strong should airplanes be? It's not practical to build an airplane designed to withstand all possible loads. 
-
-Such an airplane would have many drawbacks. It would be too heavy to take off quickly. It wouldn't be able to carry a reasonable payload, and it would land at very high airspeeds. 
-
-Consequently, airplane design considers load factors which are encountered in normal situations.
-
-Airplanes are certified and categorized according to the intended use of the airplane. The categories we are concerned with are: normal, utility, and acrobatic.
-
-Normal category airplanes are intended for non acrobatic flight, while utility category airplanes may be used for limited acrobatics.
-
-The acrobatic category airplanes are used for the full range of acrobatics.
-The maneuvering limit load factors for normal category airplanes are 3.8 positive and 1.52 negative Gs.
-
-For the utility category they are 4.4 positive and 1.76 negative Gs.
-The maneuvering limit load factors for acrobatic category airplanes are 6 positive and 3 negative Gs.
-
-As a safety margin, the airplane structure must be capable of sustaining loads one and one half times these limit load factors.
-
-It's permissible for some parts to twist and bend under this added load. Pilots should not intentionally take advantage of this reserve strength. Its purpose is to account for unexpected conditions.
-
-The load factor on any airplane during a constant altitude turn is determined by bank alone and is the result of centrifugal force and gravity. The load factor is not changed by airspeed or type of airplane.
-
-A level turn made at a thirty degree bank has a load factor of 1.15 Gs, and at a bank of forty five degrees the load factor increases to 1.41 Gs.
-
-After forty five degrees of bank the load factor in a constant altitude turn increases dramatically. Holding altitude in a sixty degree bank, the load factor is two Gs.
-
-A bank of seventy degrees, maintaining altitude, increases the load factor to almost 3 Gs.
-In a level turn, the wing must produce lift equal to the load factor.
-
-With a load factor of two Gs you'll be pushed down in your seat, as though your weight has doubled.
-
-Load factor has made the airplane heavier and a heavier airplane will stall at a higher speed.
-The normal one g flaps up stall speed of the Skyhawk is 44 knots. With a load factor of 2 Gs, the stall speed is 63 knots.
-
-Any change in the airplane's direction or pitch attitude will cause a change in the load factor. So, elevator is the pitch and the load control.
-
-In a steep banked turn, a reduction in back pressure reduces the load factor, but the airplane will descend and the turn won't be at a constant altitude.
-
-Using less back elevator pressure pulling out of a dive will reduce the load factor.
-Load factor can be measured by a G meter or accelerometer, but this instrument is usually found only in acrobatic airplanes. Seat pressure or "seat of the pants feeling" is a reliable indication of load factor.
-
-Tremendous loads can be imposed on an airplane at high speeds, and stalling speed increases as load factor becomes greater. However, the load factor on a stalled airplane cannot exceed 1G, and the load factor may even be less than 1G.
-
-Putting all this together, we can establish a speed at or below which it's impossible to exceed the design limit load factor before the airplane stalls. 
-
-The speed at which an airplane stalls before exceeding the design limit loads is called maneuvering speed. Maneuvering speed changes depending on the weight of the airplane.
-
-As weight decreases, maneuvering speed decreases because, at lighter weights, the effects of aerodynamic forces become more pronounced.
-
-For example, maneuvering speed for the Skyhawk is 99 knots at a weight of 2450 pounds. At a weight of 1600 pounds, the Skyhawk's maneuvering speed decreases to 81 knots.
-
-Maneuvering speed shouldn't be exceeded in rough air or when making full or abrupt control movements.
-
-Now let’s look at the steep turn maneuver and how to perform it.
-Before starting any turn, check for other aircraft. This is especially true for steep turns since the rate of turn is high.
-
-Steep turns, more than any maneuver you've done so far, call for orientation, power control, and rapid application of smooth and varying control pressures.
-
-Steep turns should be flown no less than 1500 feet above the surface. Because of the increased load factor, the airspeed should be reduced to or below maneuvering speed.
-
-The increased angle of attack needed to offset the lift used as horizontal component will call for a pitch attitude somewhat higher than that for a medium bank turn. To maintain altitude you must use more power to compensate for the added drag.
-
-While steep turns can be made for any number of degrees, the practical test standards call for a 360 degree turn.
-
-To help keep you oriented, start the turn on one of the cardinal points of the compass – north, east, south, or west.
-
-Pick something prominent like a road or other landmark parallel to the heading of the airplane to help you judge the completion of the turn. The bank should be 45 degrees, and the altitude must be maintained within 100 feet.
-
-Entering the turn is like entering any turn with the difference that the controls are deflected for a longer time to reach the steeper bank.
-
-As the bank angle goes past 30 degrees, power should be increased as necessary, and you'll probably find that the back elevator pressure needed is greater than you expect.
-
-The bank of 45 degrees and final power setting should be reached after completing 25 to 35 degrees of turn.
-
-Because 45 degrees is not marked on the bank scale, you must position the bank pointer halfway between the 30 and 60 degree marks.
-
-A more precise method is to align the wings of the miniature airplane with the bottom ground perspective line, like so.
-
-Don't stare at any one thing. Crosscheck the attitude indicator with the nose, wings, horizon, altimeter, and reference point as you turn.
-
-The altimeter must be monitored to be sure you are staying within 100 feet. If you are losing altitude, don't try to correct with just back pressure. Doing so will only tighten the turn.
-
-To get back to the altitude, first shallow the bank by 5 or 10 degrees, then increase the pitch attitude. Return to the 45 degree bank after the airplane is back to the starting altitude.
-
-If the airplane is climbing, you can make a slight increase in the bank or a small decrease in back pressure.
-
-In a 45 degree bank, the airplane is at the threshold of overbanking and you may need to hold some aileron pressure against the turn to keep the bank from increasing.
-
-With climb power and airspeed lower than cruise, torque will be greater than the corrections which offset the forces that turn the airplane to the left.
-
-You will probably need a slight amount of right rudder pressure during a steep turn, and even more right rudder pressure to enter one to the right.
-
-It's important to stay oriented with the reference point, as the rate of turn is high, and thus heading change is fairly rapid.
-
-At typical training airplane speeds of 90 to 120 knots, the rate of turn varies between 12 and 9 degrees per second respectively.
-
-When the airplane heading is within 25 to 35 degrees of the reference, apply opposite aileron and rudder pressure to roll out of the turn.
-
-As the bank decreases, the back elevator pressure must be relaxed and power returned to the level flight power setting.
-
-Steep turns are introduced before solo to make you familiar with them in case a short duration steep banked turn is necessary during the early stages of solo. Work on steep turns usually begins in earnest after solo.
-4. Closer Look: Touch and Go
-Let's take a closer look at your flying practice in the form of touch and go's.
-
-A touch and go consists of a landing, and while you're still rolling, reconfiguring the airplane for takeoff and going right back up.
-
-Touch and go's are a way to practice takeoffs and landings without the added time used to pull off the runway and taxi back to the departure end, as you would if your landings were all to a "full stop."
-
-The touch and go should not be taken lightly as there are a variety of items to adjust such as flaps and trim while still maintaining primary focus on controlling the airplane.
-
-Another version of the touch and go is called a "stop and go," which is just as it sounds. The airplane is brought to a full stop on the runway before again taking off. 
-
-Remember, when doing "stop and go's", you're tying up the runway while you're on it and must ensure adequate distance remains for the takeoff.
-
-At a tower controlled field, ask for a touch and go or a stop and go from the tower by requesting the "option."
-
-Lunken tower, Cessna Three Five Sierra, requests the option, runway two one left.
-
-Announce your intentions at a non-towered field.
-
-Clermont County traffic, Cessna Three Five Sierra is left downwind, runway 4, touch and go, Clermont County.
-
-At an airport where lots of training is going on, touch and go's are very common.
-
-
-
-
-
-
-
-
-
-
-
-
-
-5. Emergencies
-Up to this point, we've discussed normal operations. But pilots need to recognize the possibility that emergencies can occur and be prepared. So let's look at what to do if an emergency arises.
-The regulations state that in an emergency the pilot may deviate from any rule to the extent required to meet that emergency. The F-A-A may ask for a written report about your bending the rules but if they don’t ask, no report is required.
-
-If on takeoff roll, the engine doesn't sound right or the airplane feels "strange", don't hesitate, reduce the power and abort the takeoff. Taxi back and have the airplane checked to your satisfaction.
-
-If you have an engine failure immediately after takeoff, don't attempt to turn back to the runway. Statistics show you probably won't make it. Of course, a lot depends on your altitude. Your chances of making a 180 degree turn with a dead engine while in a climbing attitude at a slow airspeed, are not good.
-
-Instead, get the nose down quickly, maintain flying speed, and make the best landing you can under the circumstances. If you are under 200 feet, keep turns shallow and to a minimum.
-
-If you have a partial power failure on takeoff, fly straight ahead and try to gain some altitude. Keep all turns shallow and gradually turn back to the airport.
-
-Once back in the airport pattern, keep the power on until you are sure you can land normally.
-Instruction in forced landings away from the airport is required as part of your pre solo training. Your instructor will simulate engine failures at cruise altitude. As always, your first concern should be to fly the airplane and establish the best glide speed.
-
-After you have done this, look for a suitable landing field. To pick the best landing site, you need to know the wind direction. This is not the time to figure out wind direction – you should always know its direction. The goal of any forced landing is to complete a safe landing in the largest and best field available. You want to touch down in a normal landing attitude with the airplane under control.
-If you are above 1,000 feet, first trim the airplane for best gliding airspeed. Flying the airplane is always your number 1 priority.
-
-Select a landing site and spiral down over it. Set up to enter on a downwind leg for a normal pattern just as you would at your home airport. If below 1,000 feet, trim for best glide speed, and select a field for a normal approach if possible.
-
-In any emergency, while still maintaining aircraft control, perform the emergency procedures checklist for your airplane. See if you can identify what caused the engine problem and correct it. Failure to follow the emergency procedures checklist, which usually includes switching fuel tanks, has resulted in more than one embarrassed pilot having an off-airport landing due to fuel starvation, only to find fuel in the other tank after landing.
-</mutableString>
-                                                <color key="textColor" systemColor="labelColor"/>
+</string>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
@@ -433,8 +214,8 @@ In any emergency, while still maintaining aircraft control, perform the emergenc
                                         <constraints>
                                             <constraint firstItem="6D5-KP-4TT" firstAttribute="top" secondItem="NBn-iI-s6A" secondAttribute="top" id="E7V-Ye-4gI"/>
                                             <constraint firstAttribute="bottom" secondItem="6D5-KP-4TT" secondAttribute="bottom" constant="25" id="Upd-MA-pVj"/>
-                                            <constraint firstItem="6D5-KP-4TT" firstAttribute="leading" secondItem="NBn-iI-s6A" secondAttribute="leading" constant="15" id="d2v-XR-vXm"/>
-                                            <constraint firstAttribute="trailing" secondItem="6D5-KP-4TT" secondAttribute="trailing" constant="15" id="eoA-c6-3qe"/>
+                                            <constraint firstItem="6D5-KP-4TT" firstAttribute="leading" secondItem="NBn-iI-s6A" secondAttribute="leading" constant="5" id="d2v-XR-vXm"/>
+                                            <constraint firstAttribute="trailing" secondItem="6D5-KP-4TT" secondAttribute="trailing" constant="5" id="eoA-c6-3qe"/>
                                             <constraint firstItem="6D5-KP-4TT" firstAttribute="centerX" secondItem="NBn-iI-s6A" secondAttribute="centerX" id="fg6-3z-8Wz"/>
                                             <constraint firstItem="6D5-KP-4TT" firstAttribute="bottom" secondItem="f91-AX-29D" secondAttribute="bottom" id="z4S-Ke-y8V"/>
                                         </constraints>
@@ -444,27 +225,28 @@ In any emergency, while still maintaining aircraft control, perform the emergenc
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="NBn-iI-s6A" secondAttribute="bottom" constant="25" id="NQT-2f-B6S"/>
+                                    <constraint firstAttribute="bottom" secondItem="NBn-iI-s6A" secondAttribute="bottom" constant="15" id="NQT-2f-B6S"/>
                                     <constraint firstAttribute="trailing" secondItem="NBn-iI-s6A" secondAttribute="trailing" id="OvJ-N2-WdQ"/>
                                     <constraint firstItem="NBn-iI-s6A" firstAttribute="leading" secondItem="xlg-4s-ADI" secondAttribute="leading" id="dlm-he-i53"/>
                                     <constraint firstItem="NBn-iI-s6A" firstAttribute="top" secondItem="xlg-4s-ADI" secondAttribute="top" constant="25" id="kTf-jj-iUf"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8qt-zu-nFy">
-                                <rect key="frame" x="25" y="727" width="343" height="25"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8qt-zu-nFy">
+                                <rect key="frame" x="5" y="690" width="383" height="35"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="please type..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="N5l-7x-5EG">
-                                        <rect key="frame" x="0.0" y="0.0" width="196.66666666666666" height="25"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <color key="tintColor" red="0.0" green="0.1003791653" blue="0.097921882139999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="220.66666666666666" height="35"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="25" id="Tz6-PF-oS2"/>
+                                            <constraint firstAttribute="height" constant="35" id="Tz6-PF-oS2"/>
                                         </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e8g-Wy-EgW">
-                                        <rect key="frame" x="201.66666666666666" y="0.0" width="44" height="25"/>
+                                        <rect key="frame" x="230.66666666666666" y="0.0" width="43.999999999999972" height="35"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
@@ -477,7 +259,7 @@ In any emergency, while still maintaining aircraft control, perform the emergenc
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e5h-I4-vyg">
-                                        <rect key="frame" x="250.66666666666666" y="0.0" width="43.666666666666657" height="25"/>
+                                        <rect key="frame" x="284.66666666666669" y="0.0" width="44.333333333333314" height="35"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
@@ -489,7 +271,7 @@ In any emergency, while still maintaining aircraft control, perform the emergenc
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t0w-he-dcf">
-                                        <rect key="frame" x="299.33333333333331" y="0.0" width="43.666666666666686" height="25"/>
+                                        <rect key="frame" x="339" y="0.0" width="44" height="35"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" red="0.0" green="0.035510516739999998" blue="0.1003791653" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="Button"/>
@@ -504,13 +286,13 @@ In any emergency, while still maintaining aircraft control, perform the emergenc
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="e5h-I4-vyg" firstAttribute="width" secondItem="e8g-Wy-EgW" secondAttribute="width" id="dFk-4W-rHt"/>
-                                    <constraint firstItem="N5l-7x-5EG" firstAttribute="width" secondItem="e8g-Wy-EgW" secondAttribute="width" multiplier="4.5" id="vRF-46-m23"/>
+                                    <constraint firstItem="N5l-7x-5EG" firstAttribute="width" secondItem="e8g-Wy-EgW" secondAttribute="width" multiplier="5" id="vRF-46-m23"/>
                                     <constraint firstItem="t0w-he-dcf" firstAttribute="width" secondItem="e8g-Wy-EgW" secondAttribute="width" id="wAG-Rj-r8O"/>
                                     <constraint firstItem="e5h-I4-vyg" firstAttribute="height" secondItem="e8g-Wy-EgW" secondAttribute="height" id="xTe-66-5SD"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zG2-o9-9P4">
-                                <rect key="frame" x="149" y="777" width="95" height="25"/>
+                                <rect key="frame" x="149" y="757" width="95" height="35"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -527,15 +309,15 @@ In any emergency, while still maintaining aircraft control, perform the emergenc
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xlg-4s-ADI" firstAttribute="leading" secondItem="r2X-Vp-gh1" secondAttribute="leading" id="0hQ-if-hgs"/>
-                            <constraint firstItem="r2X-Vp-gh1" firstAttribute="trailing" secondItem="8qt-zu-nFy" secondAttribute="trailing" constant="25" id="4yu-FM-7Lz"/>
-                            <constraint firstItem="8qt-zu-nFy" firstAttribute="top" secondItem="xlg-4s-ADI" secondAttribute="bottom" constant="25" id="EiI-Bm-UMb"/>
+                            <constraint firstItem="r2X-Vp-gh1" firstAttribute="trailing" secondItem="8qt-zu-nFy" secondAttribute="trailing" constant="5" id="4yu-FM-7Lz"/>
+                            <constraint firstItem="8qt-zu-nFy" firstAttribute="top" secondItem="xlg-4s-ADI" secondAttribute="bottom" constant="5" id="EiI-Bm-UMb"/>
                             <constraint firstItem="zG2-o9-9P4" firstAttribute="height" secondItem="N5l-7x-5EG" secondAttribute="height" id="Gcz-2y-yFf"/>
-                            <constraint firstAttribute="bottom" secondItem="zG2-o9-9P4" secondAttribute="bottom" constant="50" id="JRe-Sj-wGY"/>
+                            <constraint firstAttribute="bottom" secondItem="zG2-o9-9P4" secondAttribute="bottom" constant="60" id="JRe-Sj-wGY"/>
                             <constraint firstItem="r2X-Vp-gh1" firstAttribute="trailing" secondItem="xlg-4s-ADI" secondAttribute="trailing" id="Ktc-Dw-Mp8"/>
-                            <constraint firstItem="8qt-zu-nFy" firstAttribute="leading" secondItem="r2X-Vp-gh1" secondAttribute="leading" constant="25" id="UCk-fi-Csb"/>
+                            <constraint firstItem="8qt-zu-nFy" firstAttribute="leading" secondItem="r2X-Vp-gh1" secondAttribute="leading" constant="5" id="UCk-fi-Csb"/>
                             <constraint firstItem="r2X-Vp-gh1" firstAttribute="trailing" secondItem="zG2-o9-9P4" secondAttribute="trailing" constant="149" id="flh-Fj-m49"/>
                             <constraint firstItem="xlg-4s-ADI" firstAttribute="top" secondItem="r2X-Vp-gh1" secondAttribute="top" id="h8J-iE-y7X"/>
-                            <constraint firstItem="zG2-o9-9P4" firstAttribute="top" secondItem="8qt-zu-nFy" secondAttribute="bottom" constant="25" id="iMe-zP-uvs"/>
+                            <constraint firstItem="zG2-o9-9P4" firstAttribute="top" secondItem="8qt-zu-nFy" secondAttribute="bottom" constant="32" id="iMe-zP-uvs"/>
                             <constraint firstItem="zG2-o9-9P4" firstAttribute="leading" secondItem="r2X-Vp-gh1" secondAttribute="leading" constant="149" id="ydP-jg-wEJ"/>
                         </constraints>
                     </view>
@@ -653,15 +435,11 @@ In any emergency, while still maintaining aircraft control, perform the emergenc
     </scenes>
     <resources>
         <image name="arrow.right.doc.on.clipboard" catalog="system" width="116" height="128"/>
+        <image name="building.columns" catalog="system" width="128" height="112"/>
         <image name="camera" catalog="system" width="128" height="93"/>
+        <image name="minus.circle.fill" catalog="system" width="128" height="123"/>
         <image name="paperplane.circle" catalog="system" width="128" height="123"/>
         <image name="photo.fill.on.rectangle.fill" catalog="system" width="128" height="102"/>
         <image name="square.and.arrow.up.fill" catalog="system" width="115" height="128"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
