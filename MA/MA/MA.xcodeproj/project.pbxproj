@@ -15,18 +15,25 @@
 		B81763D02B01A3EE000DA7DC /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81763CF2B01A3EE000DA7DC /* MainVC.swift */; };
 		B81763D22B01B836000DA7DC /* TextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81763D12B01B836000DA7DC /* TextVC.swift */; };
 		B81C28622B15877300B3F106 /* DictionaryLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81C28612B15877300B3F106 /* DictionaryLists.swift */; };
+		B8BDD0202B1D6E7400988B4D /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B8BDD01F2B1D6E7400988B4D /* SwiftyJSON */; };
+		B8BDD0222B1D7AE100988B4D /* WordCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDD0212B1D7AE100988B4D /* WordCount.swift */; };
+		B8BDD0242B1D8D5B00988B4D /* UIAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDD0232B1D8D5B00988B4D /* UIAnimationController.swift */; };
 		B8C435112B01F6D7009E21C3 /* Drafts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C435102B01F6D7009E21C3 /* Drafts.swift */; };
 		B8C435152B01FE08009E21C3 /* ImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C435142B01FE08009E21C3 /* ImageVC.swift */; };
 		B8C435182B02AFB8009E21C3 /* TextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C435172B02AFB8009E21C3 /* TextRecognizer.swift */; };
-		B8C4351B2B02CB87009E21C3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4351A2B02CB87009E21C3 /* Extensions.swift */; };
 		B8C435202B03112E009E21C3 /* WordLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C4351F2B03112E009E21C3 /* WordLists.swift */; };
 		B8C435222B0312E5009E21C3 /* DictionaryTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C435212B0312E5009E21C3 /* DictionaryTVC.swift */; };
 		B8C435242B049257009E21C3 /* WordProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C435232B049257009E21C3 /* WordProcessor.swift */; };
-		B8C4352A2B06941B009E21C3 /* WordCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C435282B06941B009E21C3 /* WordCellTVC.swift */; };
-		B8C4352B2B06941B009E21C3 /* WordCellTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C435292B06941B009E21C3 /* WordCellTVC.xib */; };
 		B8C4352E2B06F6A0009E21C3 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = B8C4352D2B06F6A0009E21C3 /* Realm */; };
 		B8C435302B06F6A0009E21C3 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B8C4352F2B06F6A0009E21C3 /* RealmSwift */; };
 		B8C435332B06F6DB009E21C3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C435322B06F6DB009E21C3 /* Storage.swift */; };
+		B8E404E72B198B9F00889495 /* Translater.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E404E62B198B9F00889495 /* Translater.swift */; };
+		B8E404EA2B19952100889495 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = B8E404E92B19952100889495 /* Alamofire */; };
+		B8E404ED2B19953800889495 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = B8E404EC2B19953800889495 /* AlamofireImage */; };
+		B8E404F02B19C91000889495 /* MyCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E404EE2B19C91000889495 /* MyCellTVC.swift */; };
+		B8E404F12B19C91000889495 /* MyCellTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E404EF2B19C91000889495 /* MyCellTVC.xib */; };
+		B8E404F72B1AEC7000889495 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B8E404F62B1AEC7000889495 /* Lottie */; };
+		B8E58E7A2B1AF170002CA8EA /* wired-lineal-35-edit.json in Resources */ = {isa = PBXBuildFile; fileRef = B8E58E792B1AF170002CA8EA /* wired-lineal-35-edit.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,16 +47,19 @@
 		B81763CF2B01A3EE000DA7DC /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		B81763D12B01B836000DA7DC /* TextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextVC.swift; sourceTree = "<group>"; };
 		B81C28612B15877300B3F106 /* DictionaryLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryLists.swift; sourceTree = "<group>"; };
+		B8BDD0212B1D7AE100988B4D /* WordCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCount.swift; sourceTree = "<group>"; };
+		B8BDD0232B1D8D5B00988B4D /* UIAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimationController.swift; sourceTree = "<group>"; };
 		B8C435102B01F6D7009E21C3 /* Drafts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drafts.swift; sourceTree = "<group>"; };
 		B8C435142B01FE08009E21C3 /* ImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVC.swift; sourceTree = "<group>"; };
 		B8C435172B02AFB8009E21C3 /* TextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizer.swift; sourceTree = "<group>"; };
-		B8C4351A2B02CB87009E21C3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B8C4351F2B03112E009E21C3 /* WordLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordLists.swift; sourceTree = "<group>"; };
 		B8C435212B0312E5009E21C3 /* DictionaryTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTVC.swift; sourceTree = "<group>"; };
 		B8C435232B049257009E21C3 /* WordProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordProcessor.swift; sourceTree = "<group>"; };
-		B8C435282B06941B009E21C3 /* WordCellTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCellTVC.swift; sourceTree = "<group>"; };
-		B8C435292B06941B009E21C3 /* WordCellTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WordCellTVC.xib; sourceTree = "<group>"; };
 		B8C435322B06F6DB009E21C3 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		B8E404E62B198B9F00889495 /* Translater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translater.swift; sourceTree = "<group>"; };
+		B8E404EE2B19C91000889495 /* MyCellTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCellTVC.swift; sourceTree = "<group>"; };
+		B8E404EF2B19C91000889495 /* MyCellTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCellTVC.xib; sourceTree = "<group>"; };
+		B8E58E792B1AF170002CA8EA /* wired-lineal-35-edit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "wired-lineal-35-edit.json"; path = "PICS/wired-lineal-35-edit.json"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +67,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8BDD0202B1D6E7400988B4D /* SwiftyJSON in Frameworks */,
+				B8E404F72B1AEC7000889495 /* Lottie in Frameworks */,
+				B8E404EA2B19952100889495 /* Alamofire in Frameworks */,
+				B8E404ED2B19953800889495 /* AlamofireImage in Frameworks */,
 				B8C435302B06F6A0009E21C3 /* RealmSwift in Frameworks */,
 				B8C4352E2B06F6A0009E21C3 /* Realm in Frameworks */,
 			);
@@ -84,12 +98,13 @@
 		B81763B82B019B6E000DA7DC /* MA */ = {
 			isa = PBXGroup;
 			children = (
+				B8C4351C2B02CC3F009E21C3 /* VC */,
+				B8C435162B02AF8F009E21C3 /* Functions */,
+				B8C4351D2B03110F009E21C3 /* Data */,
 				B8C435312B06F6B1009E21C3 /* Storage */,
 				B8C435272B0693D5009E21C3 /* Cell */,
-				B8C4351D2B03110F009E21C3 /* Data */,
-				B8C435162B02AF8F009E21C3 /* Functions */,
-				B8C4351C2B02CC3F009E21C3 /* VC */,
 				B8C435122B01F940009E21C3 /* Screen */,
+				B8E58E782B1AF0F3002CA8EA /* Pics */,
 				B8C435192B02CB66009E21C3 /* Extensions */,
 				B81763C22B019B6F000DA7DC /* Assets.xcassets */,
 				B81763C72B019B6F000DA7DC /* Info.plist */,
@@ -120,8 +135,11 @@
 		B8C435162B02AF8F009E21C3 /* Functions */ = {
 			isa = PBXGroup;
 			children = (
-				B8C435172B02AFB8009E21C3 /* TextRecognizer.swift */,
+				B8BDD0232B1D8D5B00988B4D /* UIAnimationController.swift */,
 				B8C435232B049257009E21C3 /* WordProcessor.swift */,
+				B8C435172B02AFB8009E21C3 /* TextRecognizer.swift */,
+				B8E404E62B198B9F00889495 /* Translater.swift */,
+				B8BDD0212B1D7AE100988B4D /* WordCount.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -129,7 +147,6 @@
 		B8C435192B02CB66009E21C3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				B8C4351A2B02CB87009E21C3 /* Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -137,10 +154,10 @@
 		B8C4351C2B02CC3F009E21C3 /* VC */ = {
 			isa = PBXGroup;
 			children = (
-				B8C435212B0312E5009E21C3 /* DictionaryTVC.swift */,
+				B81763CF2B01A3EE000DA7DC /* MainVC.swift */,
 				B81763D12B01B836000DA7DC /* TextVC.swift */,
 				B8C435142B01FE08009E21C3 /* ImageVC.swift */,
-				B81763CF2B01A3EE000DA7DC /* MainVC.swift */,
+				B8C435212B0312E5009E21C3 /* DictionaryTVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -157,8 +174,8 @@
 		B8C435272B0693D5009E21C3 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				B8C435282B06941B009E21C3 /* WordCellTVC.swift */,
-				B8C435292B06941B009E21C3 /* WordCellTVC.xib */,
+				B8E404EE2B19C91000889495 /* MyCellTVC.swift */,
+				B8E404EF2B19C91000889495 /* MyCellTVC.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -169,6 +186,14 @@
 				B8C435322B06F6DB009E21C3 /* Storage.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		B8E58E782B1AF0F3002CA8EA /* Pics */ = {
+			isa = PBXGroup;
+			children = (
+				B8E58E792B1AF170002CA8EA /* wired-lineal-35-edit.json */,
+			);
+			path = Pics;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +215,10 @@
 			packageProductDependencies = (
 				B8C4352D2B06F6A0009E21C3 /* Realm */,
 				B8C4352F2B06F6A0009E21C3 /* RealmSwift */,
+				B8E404E92B19952100889495 /* Alamofire */,
+				B8E404EC2B19953800889495 /* AlamofireImage */,
+				B8E404F62B1AEC7000889495 /* Lottie */,
+				B8BDD01F2B1D6E7400988B4D /* SwiftyJSON */,
 			);
 			productName = MA;
 			productReference = B81763B62B019B6E000DA7DC /* MA.app */;
@@ -221,6 +250,10 @@
 			mainGroup = B81763AD2B019B6E000DA7DC;
 			packageReferences = (
 				B8C4352C2B06F6A0009E21C3 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				B8E404E82B19952100889495 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B8E404EB2B19953800889495 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
+				B8E404F52B1AEC7000889495 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				B8BDD01E2B1D6E7400988B4D /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 			);
 			productRefGroup = B81763B72B019B6E000DA7DC /* Products */;
 			projectDirPath = "";
@@ -236,8 +269,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8E58E7A2B1AF170002CA8EA /* wired-lineal-35-edit.json in Resources */,
+				B8E404F12B19C91000889495 /* MyCellTVC.xib in Resources */,
 				B81763C62B019B6F000DA7DC /* LaunchScreen.storyboard in Resources */,
-				B8C4352B2B06941B009E21C3 /* WordCellTVC.xib in Resources */,
 				B81763C32B019B6F000DA7DC /* Assets.xcassets in Resources */,
 				B81763C12B019B6E000DA7DC /* Main.storyboard in Resources */,
 			);
@@ -250,20 +284,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8BDD0222B1D7AE100988B4D /* WordCount.swift in Sources */,
 				B81763BA2B019B6E000DA7DC /* AppDelegate.swift in Sources */,
 				B81763D22B01B836000DA7DC /* TextVC.swift in Sources */,
+				B8E404E72B198B9F00889495 /* Translater.swift in Sources */,
 				B8C435242B049257009E21C3 /* WordProcessor.swift in Sources */,
 				B8C435152B01FE08009E21C3 /* ImageVC.swift in Sources */,
-				B8C4351B2B02CB87009E21C3 /* Extensions.swift in Sources */,
 				B81763D02B01A3EE000DA7DC /* MainVC.swift in Sources */,
 				B8C435222B0312E5009E21C3 /* DictionaryTVC.swift in Sources */,
 				B8C435112B01F6D7009E21C3 /* Drafts.swift in Sources */,
 				B8C435182B02AFB8009E21C3 /* TextRecognizer.swift in Sources */,
-				B8C4352A2B06941B009E21C3 /* WordCellTVC.swift in Sources */,
 				B81763BC2B019B6E000DA7DC /* SceneDelegate.swift in Sources */,
 				B8C435202B03112E009E21C3 /* WordLists.swift in Sources */,
+				B8E404F02B19C91000889495 /* MyCellTVC.swift in Sources */,
 				B8C435332B06F6DB009E21C3 /* Storage.swift in Sources */,
 				B81C28622B15877300B3F106 /* DictionaryLists.swift in Sources */,
+				B8BDD0242B1D8D5B00988B4D /* UIAnimationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +524,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		B8BDD01E2B1D6E7400988B4D /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.1;
+			};
+		};
 		B8C4352C2B06F6A0009E21C3 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift";
@@ -496,9 +540,38 @@
 				minimumVersion = 10.44.0;
 			};
 		};
+		B8E404E82B19952100889495 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.8.1;
+			};
+		};
+		B8E404EB2B19953800889495 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.0;
+			};
+		};
+		B8E404F52B1AEC7000889495 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.3.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		B8BDD01F2B1D6E7400988B4D /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8BDD01E2B1D6E7400988B4D /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
 		B8C4352D2B06F6A0009E21C3 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = B8C4352C2B06F6A0009E21C3 /* XCRemoteSwiftPackageReference "realm-swift" */;
@@ -508,6 +581,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B8C4352C2B06F6A0009E21C3 /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		B8E404E92B19952100889495 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8E404E82B19952100889495 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		B8E404EC2B19953800889495 /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8E404EB2B19953800889495 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
+		};
+		B8E404F62B1AEC7000889495 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B8E404F52B1AEC7000889495 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

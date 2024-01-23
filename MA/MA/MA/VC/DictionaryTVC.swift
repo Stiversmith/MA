@@ -7,6 +7,7 @@ class DictionaryTVC: UITableViewController {
     var wordProcessor: WordProcessor
     var delegate: TextVC?
     var selectedSentence: String?
+    var filteredWords: [String] = []
     
     init(wordLists: Results<WordLists>) {
         self.wordLists = wordLists
@@ -20,16 +21,30 @@ class DictionaryTVC: UITableViewController {
         super.init(coder: aDecoder)
     }
     
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
     @IBAction func addWord(_ sender: Any) {
         alertForAddAndUpdatesWords()
     }
     
+    @IBAction func deleteAll(_ sender: Any) {
+        StorageManager.deleteAll()
+        self.tableView.reloadData()
+    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.register(UINib(nibName: "MyCellTVC", bundle: nil), forCellReuseIdentifier: "Cell")
 
         processWords()
+        
+        searchBar.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         let wordCount = words.count
         let message = "Добавлено \(wordCount) слов"
@@ -49,14 +64,34 @@ class DictionaryTVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return words.count
+        if !searchBar.text!.isEmpty {
+            return filteredWords.count
+        } else {
+            return words.count
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? MyCellTVC ?? MyCellTVC()
+        let word: String
         
-        let word = words[indexPath.row]
-        cell.textLabel?.text = word
+        if !searchBar.text!.isEmpty {
+            word = filteredWords[indexPath.row]
+        } else {
+            word = words[indexPath.row]
+        }
+        
+        let translation = getTranslationForWord(word) ?? "Перевод недоступен, советуем купить словарь"
+        
+        if let numberLabel = cell.numberLbl {
+            numberLabel.text = "\(indexPath.row + 1)"
+        } else {
+            print("numberLbl is nil!")
+        }
+        
+        cell.numberLbl.text = "\(indexPath.row + 1)"
+        cell.titleLabel.text = word
+        cell.detailsLabel.text = translation  // "еще работаем над этим..."
         
         return cell
     }
@@ -75,22 +110,23 @@ class DictionaryTVC: UITableViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let currentWord = wordLists[indexPath.row]
-        
+            
         let deleteContextualAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, _ in
             StorageManager.deleteWord(word: currentWord)
             self?.words.remove(at: indexPath.row)
-            self?.tableView.beginUpdates()
+            self?.updateCellNumbers()
             self?.tableView.deleteRows(at: [indexPath], with: .fade)
+            self?.updateCellNumbers()
             self?.tableView.endUpdates()
         }
-        
+            
         let editContextualAction = UIContextualAction(style: .destructive, title: "Edit") { [weak self] _, _, _ in
             self?.alertForAddAndUpdatesWords(currentWord: currentWord, indexPath: indexPath)
         }
-        
+            
         deleteContextualAction.backgroundColor = .black
         editContextualAction.backgroundColor = .gray
-        
+            
         let swipeActionsConfiguration = UISwipeActionsConfiguration(actions: [editContextualAction, deleteContextualAction])
         return swipeActionsConfiguration
     }
@@ -109,12 +145,12 @@ class DictionaryTVC: UITableViewController {
     
     private func showAlert(withText text: String, forWord word: String) {
         if let sentence = getSentenceContainingWord(word, in: text) {
-            let alertController = UIAlertController(title: "Alert", message: "Слово используется в предложении: \(sentence)", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "\(word)", message: "Слово используется в предложении: \(sentence)", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(okAction)
             present(alertController, animated: true, completion: nil)
         } else {
-            let alertController = UIAlertController(title: "Alert", message: "Извини, не помню откуда это слово взялось", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "\(word)", message: "Извини, не помню откуда это слово взялось. Наверное это ты его написал.", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
             alertController.addAction(okAction)
             present(alertController, animated: true, completion: nil)
@@ -148,11 +184,10 @@ class DictionaryTVC: UITableViewController {
             guard let self, let newWord = alertTextField.text, !newWord.isEmpty else { return }
 
             if let currentWord = currentWord,
-               let _ = indexPath
+               let indexPath = indexPath
             {
                 StorageManager.editWord(word: currentWord, newWord: newWord)
-                self.words.append(newWord)
-                processWords()
+                self.words[indexPath.row] = newWord
                 self.tableView.reloadData()
             } else {
                 let wordObject = WordLists()
@@ -172,8 +207,63 @@ class DictionaryTVC: UITableViewController {
         alertController.addTextField { textField in
             alertTextField = textField
             alertTextField.placeholder = "a new word"
+            
+            if let currentWord = currentWord {
+                alertTextField.text = currentWord.words
+            }
         }
         
         present(alertController, animated: true)
+    }
+    
+    private func getTranslationForWord(_ word: String) -> String? {
+        let translater = Translater()
+        var translation: String?
+
+        let semaphore = DispatchSemaphore(value: 0)
+
+        translater.translate(word: word) { translatedText in
+            translation = translatedText
+            semaphore.signal()
+        }
+
+        semaphore.wait()
+
+        if let translation = translation {
+            print("Перевод для '\(word)': \(translation)")
+        } else {
+            print("Что бы перевести '\(word)' сходи и купи словарь себе.")
+        }
+
+        return translation
+    }
+    
+    private func updateCellNumbers() {
+        guard let visibleIndexPaths = tableView.indexPathsForVisibleRows else {
+            return
+        }
+
+        for indexPath in visibleIndexPaths {
+            if let cell = tableView.cellForRow(at: indexPath) as? MyCellTVC {
+                cell.numberLbl.text = "\(indexPath.row + 1)"
+            }
+        }
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        filteredWords = words.filter({ (word: String) -> Bool in
+            return word.lowercased().contains(searchText.lowercased())
+        })
+        tableView.reloadData()
+    }
+}
+
+extension DictionaryTVC: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filterContentForSearchText(searchText)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }
