@@ -37,25 +37,18 @@ class ImageVC: UIViewController, UINavigationControllerDelegate, UIImagePickerCo
         
     private func fetchImage() {
         guard let url = URL(string: imageURL) else { return }
-            
-        let urlRequest = URLRequest(url: url)
-        let task = URLSession.shared.dataTask(with: urlRequest) { [weak self] data, response, error in
+        
+        activityIndic.startAnimating()
+        
+        ImageFetcher.fetchImage(from: url) { [weak self] image in
             DispatchQueue.main.async {
                 self?.activityIndic.stopAnimating()
-                    
-                if let error = error {
-                    print(error.localizedDescription)
-                    return
-                }
-                    
-                if let response = response { print(response) }
-                    
-                if let data = data, let image = UIImage(data: data) {
+                
+                if let image = image {
                     self?.imageView.image = image
-                } else { print("Error loading image data") }
+                }
             }
         }
-        task.resume()
     }
         
     func processImage(_ image: UIImage) {

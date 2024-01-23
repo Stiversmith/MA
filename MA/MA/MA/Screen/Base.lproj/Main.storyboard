@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9mY-qY-xsG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9mY-qY-xsG">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -41,6 +41,9 @@
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="eQM-9W-ryo" kind="show" id="oxh-1G-A9K"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -143,22 +146,25 @@
                             <barButtonItem title="Item" image="minus.circle.fill" catalog="system" id="Nc6-XH-ovP">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <action selector="deleteAll:" destination="mfL-MM-65r" id="3s6-6k-hTJ"/>
+                                    <action selector="deleteAll:" destination="mfL-MM-65r" id="N6G-ED-2Iz"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="arrow.right.doc.on.clipboard" catalog="system" id="9Qc-OB-MfS">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
-                                    <action selector="addWord:" destination="mfL-MM-65r" id="4gN-8m-4BW"/>
+                                    <action selector="addWord:" destination="mfL-MM-65r" id="SGU-AD-MYL"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="building.columns" catalog="system" id="3GL-9J-eT1">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="saveDict:" destination="mfL-MM-65r" id="sTV-Wc-u8h"/>
+                                </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="searchBar" destination="h0R-MI-QOv" id="AeO-dC-ied"/>
+                        <outlet property="searchBar" destination="h0R-MI-QOv" id="DcM-JW-eeq"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I1a-fS-sdH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -396,6 +402,54 @@ This is the highest groundspeed during the turn and on this heading the airplane
             </objects>
             <point key="canvasLocation" x="2719.8473282442746" y="-206.33802816901411"/>
         </scene>
+        <!--Your Dictionarys-->
+        <scene sceneID="t2G-3r-3V5">
+            <objects>
+                <tableViewController storyboardIdentifier="ListTVC" id="eQM-9W-ryo" customClass="ListTVC" customModule="MA" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="o6t-Dr-RYs">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="sectionIndexTrackingBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="0SB-s1-o30">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="eQM-9W-ryo" id="bh9-oL-BR2"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="fAD-9K-BQA" customClass="ListCellTVC" customModule="MA" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="94" width="393" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fAD-9K-BQA" id="PLV-ys-N8f" customClass="ListCellTVC" customModule="MA" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eQM-9W-ryo" id="PHj-lR-2RY"/>
+                            <outlet property="delegate" destination="eQM-9W-ryo" id="eVk-Ly-yvD"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Your Dictionarys" leftItemsSupplementBackButton="YES" style="browser" id="8bd-Sf-APp">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="rDk-SK-0zB"/>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics" barStyle="black"/>
+                    <connections>
+                        <outlet property="searchBar" destination="0SB-s1-o30" id="f2x-UB-qqd"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VBn-dG-JHN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4398" y="-206"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nz8-LO-QJR">
             <objects>
@@ -432,7 +486,28 @@ This is the highest groundspeed during the turn and on this heading the airplane
             </objects>
             <point key="canvasLocation" x="1856" y="525"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="46a-nN-F92">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="X5M-di-II8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="uc7-z5-v0O">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eQM-9W-ryo" kind="relationship" relationship="rootViewController" id="x00-kR-4zc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ihJ-l3-MiB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3540" y="-206"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="oxh-1G-A9K"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="arrow.right.doc.on.clipboard" catalog="system" width="116" height="128"/>
         <image name="building.columns" catalog="system" width="128" height="112"/>

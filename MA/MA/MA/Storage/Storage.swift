@@ -50,6 +50,16 @@ enum StorageManager {
         }
     }
     
+    static func saveName(name: DictionaryLists, date: DictionaryLists) {
+        do {
+            try realm.write {
+                realm.add(name)
+            }
+        } catch {
+            print("error: \(error)")
+        }
+    }
+}
     /*
 
      static func deleteWordIn(word: WordLists) {
@@ -63,7 +73,8 @@ enum StorageManager {
              print("error: \(error)")
          }
      }
-    
+     /*
+
      static func editWord(words: WordLists,
                           newWord: String)
      {
@@ -77,4 +88,4 @@ enum StorageManager {
      }
     
       */
-}
+     }*/

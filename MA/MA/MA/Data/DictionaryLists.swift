@@ -1,8 +1,12 @@
-
 import Foundation
 import RealmSwift
 
 class DictionaryLists: Object {
-    @Persisted var name = ""
-    @Persisted var date = Date()
+    @objc dynamic var name: String = ""
+    @objc dynamic var date: Date = Date()
+
+    convenience init(name: String) {
+        self.init()
+        self.name = name
+    }
 }
