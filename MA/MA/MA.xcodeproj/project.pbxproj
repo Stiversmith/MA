@@ -15,9 +15,20 @@
 		B81763D02B01A3EE000DA7DC /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81763CF2B01A3EE000DA7DC /* MainVC.swift */; };
 		B81763D22B01B836000DA7DC /* TextVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81763D12B01B836000DA7DC /* TextVC.swift */; };
 		B81C28622B15877300B3F106 /* DictionaryLists.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81C28612B15877300B3F106 /* DictionaryLists.swift */; };
+		B8A8BB232B4CFF9E00CAB17C /* ListTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A8BB222B4CFF9E00CAB17C /* ListTVC.swift */; };
+		B8A8BB262B4D031400CAB17C /* ListCellTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A8BB242B4D031400CAB17C /* ListCellTVC.swift */; };
+		B8A8BB272B4D031400CAB17C /* ListCellTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8A8BB252B4D031400CAB17C /* ListCellTVC.xib */; };
 		B8BDD0202B1D6E7400988B4D /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = B8BDD01F2B1D6E7400988B4D /* SwiftyJSON */; };
 		B8BDD0222B1D7AE100988B4D /* WordCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDD0212B1D7AE100988B4D /* WordCount.swift */; };
 		B8BDD0242B1D8D5B00988B4D /* UIAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDD0232B1D8D5B00988B4D /* UIAnimationController.swift */; };
+		B8BDD0292B22D09000988B4D /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDD0282B22D09000988B4D /* ImageFetcher.swift */; };
+		B8BDD02B2B22D3B900988B4D /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDD02A2B22D3B900988B4D /* ImageLoader.swift */; };
+		B8BDD02F2B242EA000988B4D /* SearchBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDD02E2B242EA000988B4D /* SearchBarDelegate.swift */; };
+		B8BDD0312B242F5300988B4D /* CellUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDD0302B242F5300988B4D /* CellUpdater.swift */; };
+		B8BDD0332B24312700988B4D /* WordFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDD0322B24312700988B4D /* WordFilter.swift */; };
+		B8BDD0352B2432E200988B4D /* AlertHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDD0342B2432E200988B4D /* AlertHandler.swift */; };
+		B8BDD0372B2436A200988B4D /* AlertHandlerTranslated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDD0362B2436A200988B4D /* AlertHandlerTranslated.swift */; };
+		B8BDD03A2B24399400988B4D /* GetSentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BDD0392B24399400988B4D /* GetSentence.swift */; };
 		B8C435112B01F6D7009E21C3 /* Drafts.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C435102B01F6D7009E21C3 /* Drafts.swift */; };
 		B8C435152B01FE08009E21C3 /* ImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C435142B01FE08009E21C3 /* ImageVC.swift */; };
 		B8C435182B02AFB8009E21C3 /* TextRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C435172B02AFB8009E21C3 /* TextRecognizer.swift */; };
@@ -34,6 +45,7 @@
 		B8E404F12B19C91000889495 /* MyCellTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8E404EF2B19C91000889495 /* MyCellTVC.xib */; };
 		B8E404F72B1AEC7000889495 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = B8E404F62B1AEC7000889495 /* Lottie */; };
 		B8E58E7A2B1AF170002CA8EA /* wired-lineal-35-edit.json in Resources */ = {isa = PBXBuildFile; fileRef = B8E58E792B1AF170002CA8EA /* wired-lineal-35-edit.json */; };
+		B8FD89512B55F35400A278C4 /* WordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FD89502B55F35400A278C4 /* WordManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,8 +59,19 @@
 		B81763CF2B01A3EE000DA7DC /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		B81763D12B01B836000DA7DC /* TextVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextVC.swift; sourceTree = "<group>"; };
 		B81C28612B15877300B3F106 /* DictionaryLists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryLists.swift; sourceTree = "<group>"; };
+		B8A8BB222B4CFF9E00CAB17C /* ListTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTVC.swift; sourceTree = "<group>"; };
+		B8A8BB242B4D031400CAB17C /* ListCellTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCellTVC.swift; sourceTree = "<group>"; };
+		B8A8BB252B4D031400CAB17C /* ListCellTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ListCellTVC.xib; sourceTree = "<group>"; };
 		B8BDD0212B1D7AE100988B4D /* WordCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordCount.swift; sourceTree = "<group>"; };
 		B8BDD0232B1D8D5B00988B4D /* UIAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAnimationController.swift; sourceTree = "<group>"; };
+		B8BDD0282B22D09000988B4D /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
+		B8BDD02A2B22D3B900988B4D /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		B8BDD02E2B242EA000988B4D /* SearchBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarDelegate.swift; sourceTree = "<group>"; };
+		B8BDD0302B242F5300988B4D /* CellUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellUpdater.swift; sourceTree = "<group>"; };
+		B8BDD0322B24312700988B4D /* WordFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordFilter.swift; sourceTree = "<group>"; };
+		B8BDD0342B2432E200988B4D /* AlertHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHandler.swift; sourceTree = "<group>"; };
+		B8BDD0362B2436A200988B4D /* AlertHandlerTranslated.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHandlerTranslated.swift; sourceTree = "<group>"; };
+		B8BDD0392B24399400988B4D /* GetSentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSentence.swift; sourceTree = "<group>"; };
 		B8C435102B01F6D7009E21C3 /* Drafts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drafts.swift; sourceTree = "<group>"; };
 		B8C435142B01FE08009E21C3 /* ImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVC.swift; sourceTree = "<group>"; };
 		B8C435172B02AFB8009E21C3 /* TextRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRecognizer.swift; sourceTree = "<group>"; };
@@ -60,6 +83,7 @@
 		B8E404EE2B19C91000889495 /* MyCellTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCellTVC.swift; sourceTree = "<group>"; };
 		B8E404EF2B19C91000889495 /* MyCellTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCellTVC.xib; sourceTree = "<group>"; };
 		B8E58E792B1AF170002CA8EA /* wired-lineal-35-edit.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = "wired-lineal-35-edit.json"; path = "PICS/wired-lineal-35-edit.json"; sourceTree = SOURCE_ROOT; };
+		B8FD89502B55F35400A278C4 /* WordManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +164,14 @@
 				B8C435172B02AFB8009E21C3 /* TextRecognizer.swift */,
 				B8E404E62B198B9F00889495 /* Translater.swift */,
 				B8BDD0212B1D7AE100988B4D /* WordCount.swift */,
+				B8BDD0282B22D09000988B4D /* ImageFetcher.swift */,
+				B8BDD02A2B22D3B900988B4D /* ImageLoader.swift */,
+				B8BDD0302B242F5300988B4D /* CellUpdater.swift */,
+				B8BDD0322B24312700988B4D /* WordFilter.swift */,
+				B8BDD0342B2432E200988B4D /* AlertHandler.swift */,
+				B8BDD0362B2436A200988B4D /* AlertHandlerTranslated.swift */,
+				B8BDD0392B24399400988B4D /* GetSentence.swift */,
+				B8FD89502B55F35400A278C4 /* WordManager.swift */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -147,6 +179,7 @@
 		B8C435192B02CB66009E21C3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				B8BDD02E2B242EA000988B4D /* SearchBarDelegate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -158,6 +191,7 @@
 				B81763D12B01B836000DA7DC /* TextVC.swift */,
 				B8C435142B01FE08009E21C3 /* ImageVC.swift */,
 				B8C435212B0312E5009E21C3 /* DictionaryTVC.swift */,
+				B8A8BB222B4CFF9E00CAB17C /* ListTVC.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -176,6 +210,8 @@
 			children = (
 				B8E404EE2B19C91000889495 /* MyCellTVC.swift */,
 				B8E404EF2B19C91000889495 /* MyCellTVC.xib */,
+				B8A8BB242B4D031400CAB17C /* ListCellTVC.swift */,
+				B8A8BB252B4D031400CAB17C /* ListCellTVC.xib */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -272,6 +308,7 @@
 				B8E58E7A2B1AF170002CA8EA /* wired-lineal-35-edit.json in Resources */,
 				B8E404F12B19C91000889495 /* MyCellTVC.xib in Resources */,
 				B81763C62B019B6F000DA7DC /* LaunchScreen.storyboard in Resources */,
+				B8A8BB272B4D031400CAB17C /* ListCellTVC.xib in Resources */,
 				B81763C32B019B6F000DA7DC /* Assets.xcassets in Resources */,
 				B81763C12B019B6E000DA7DC /* Main.storyboard in Resources */,
 			);
@@ -287,17 +324,28 @@
 				B8BDD0222B1D7AE100988B4D /* WordCount.swift in Sources */,
 				B81763BA2B019B6E000DA7DC /* AppDelegate.swift in Sources */,
 				B81763D22B01B836000DA7DC /* TextVC.swift in Sources */,
+				B8FD89512B55F35400A278C4 /* WordManager.swift in Sources */,
+				B8BDD0292B22D09000988B4D /* ImageFetcher.swift in Sources */,
 				B8E404E72B198B9F00889495 /* Translater.swift in Sources */,
+				B8BDD0352B2432E200988B4D /* AlertHandler.swift in Sources */,
+				B8A8BB232B4CFF9E00CAB17C /* ListTVC.swift in Sources */,
 				B8C435242B049257009E21C3 /* WordProcessor.swift in Sources */,
 				B8C435152B01FE08009E21C3 /* ImageVC.swift in Sources */,
+				B8BDD0332B24312700988B4D /* WordFilter.swift in Sources */,
 				B81763D02B01A3EE000DA7DC /* MainVC.swift in Sources */,
+				B8BDD0312B242F5300988B4D /* CellUpdater.swift in Sources */,
 				B8C435222B0312E5009E21C3 /* DictionaryTVC.swift in Sources */,
+				B8A8BB262B4D031400CAB17C /* ListCellTVC.swift in Sources */,
 				B8C435112B01F6D7009E21C3 /* Drafts.swift in Sources */,
 				B8C435182B02AFB8009E21C3 /* TextRecognizer.swift in Sources */,
 				B81763BC2B019B6E000DA7DC /* SceneDelegate.swift in Sources */,
+				B8BDD0372B2436A200988B4D /* AlertHandlerTranslated.swift in Sources */,
 				B8C435202B03112E009E21C3 /* WordLists.swift in Sources */,
 				B8E404F02B19C91000889495 /* MyCellTVC.swift in Sources */,
+				B8BDD03A2B24399400988B4D /* GetSentence.swift in Sources */,
+				B8BDD02B2B22D3B900988B4D /* ImageLoader.swift in Sources */,
 				B8C435332B06F6DB009E21C3 /* Storage.swift in Sources */,
+				B8BDD02F2B242EA000988B4D /* SearchBarDelegate.swift in Sources */,
 				B81C28622B15877300B3F106 /* DictionaryLists.swift in Sources */,
 				B8BDD0242B1D8D5B00988B4D /* UIAnimationController.swift in Sources */,
 			);

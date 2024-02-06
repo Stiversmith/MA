@@ -15,6 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if let window = window {
             window.tintColor = .white // Устанавливаем цвет текста кнопок
+            let navigationController = window.rootViewController as? UINavigationController
+                navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white] // Устанавливаем цвет tittle
         }
     }
 

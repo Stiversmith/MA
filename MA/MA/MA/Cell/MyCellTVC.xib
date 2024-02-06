@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,34 +28,45 @@
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0D9-h3-Tsb">
-                        <rect key="frame" x="268.66666666666669" y="12" width="41.333333333333314" height="20"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="5vJ-Vw-bzr">
+                        <rect key="frame" x="143" y="5" width="37" height="37"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="color" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </activityIndicatorView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NFn-1Y-EvR">
+                        <rect key="frame" x="189.33333333333334" y="5" width="115.66666666666666" height="34"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <state key="normal" title="Button"/>
+                        <buttonConfiguration key="configuration" style="filled" title="Показать перевод">
+                            <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
+                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="baseBackgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </buttonConfiguration>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstItem="NFn-1Y-EvR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="4hJ-cV-G7D"/>
                     <constraint firstItem="SZK-A5-rap" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="7GH-lf-ofn"/>
                     <constraint firstItem="RFM-bV-073" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="C1T-zy-eeZ"/>
-                    <constraint firstItem="0D9-h3-Tsb" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="Kvu-uF-4GU"/>
+                    <constraint firstAttribute="bottom" secondItem="NFn-1Y-EvR" secondAttribute="bottom" constant="5" id="FeJ-pf-36F"/>
+                    <constraint firstAttribute="trailing" secondItem="NFn-1Y-EvR" secondAttribute="trailing" constant="15" id="KSs-P3-Y2s"/>
                     <constraint firstItem="RFM-bV-073" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="O4C-n5-tDy"/>
                     <constraint firstItem="SZK-A5-rap" firstAttribute="leading" secondItem="RFM-bV-073" secondAttribute="trailing" constant="15" id="fZg-tU-kYR"/>
-                    <constraint firstAttribute="trailing" secondItem="0D9-h3-Tsb" secondAttribute="trailing" constant="10" id="gKG-ZJ-kHN"/>
                     <constraint firstAttribute="bottom" secondItem="RFM-bV-073" secondAttribute="bottom" constant="12" id="idf-Qe-fTZ"/>
-                    <constraint firstAttribute="bottom" secondItem="0D9-h3-Tsb" secondAttribute="bottom" constant="12" id="klL-1r-RaJ"/>
                     <constraint firstAttribute="bottom" secondItem="SZK-A5-rap" secondAttribute="bottom" constant="12" id="you-zM-i66"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="detailsLabel" destination="0D9-h3-Tsb" id="094-NZ-w72"/>
+                <outlet property="actIndic" destination="5vJ-Vw-bzr" id="qOk-wz-UHw"/>
                 <outlet property="numberLbl" destination="RFM-bV-073" id="RLC-4Z-glC"/>
                 <outlet property="titleLabel" destination="SZK-A5-rap" id="Qdn-Wz-SsR"/>
+                <outlet property="translateBtn" destination="NFn-1Y-EvR" id="A6x-eB-1M4"/>
             </connections>
-            <point key="canvasLocation" x="139" y="20"/>
+            <point key="canvasLocation" x="-2482" y="2"/>
         </tableViewCell>
     </objects>
 </document>
