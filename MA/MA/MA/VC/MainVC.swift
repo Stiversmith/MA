@@ -1,18 +1,17 @@
-import UIKit
 import Lottie
+import UIKit
 
 protocol AnimationControllerProtocol {
     func setupUI(in container: UIStackView)
     func playAnimation()
 }
 
-
 class MainVC: UIViewController {
     
-    @IBOutlet weak var textBtn: UIButton!
-    @IBOutlet weak var dictionaryBtn: UIButton!
-    @IBOutlet weak var stackView: UIStackView!
-    @IBOutlet weak var stackViewS: UIStackView!
+    @IBOutlet var textBtn: UIButton!
+    @IBOutlet var dictionaryBtn: UIButton!
+    @IBOutlet var stackView: UIStackView!
+    @IBOutlet var stackViewS: UIStackView!
     
     private var animationController: AnimationControllerProtocol!
     

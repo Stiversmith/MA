@@ -20,10 +20,16 @@ class WordManager {
 
     }
     
-    func saveName(dictName: String, words: [String]) {
-        let dictionaryList = DictionaryLists(name: dictName)
-        StorageManager.saveName(name: dictionaryList, date: dictionaryList)
-        wordAddedHandler?(dictName)
-        availableWords.append(dictName)
+    func saveName(dictName: String, words: [String], from viewController: UIViewController) {
+        _ = DictionaryLists(name: dictName)
+        let currentDate = Date()
+
+        StorageManager.saveName(name: dictName, words: words, date: currentDate)
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let listTVC = storyboard.instantiateViewController(withIdentifier: "ListTVC") as? ListTVC {
+            listTVC.selectedWord = dictName
+            viewController.navigationController?.pushViewController(listTVC, animated: true)
+        }
     }
     }

@@ -10,9 +10,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("Realm file path: \(realmURL?.absoluteString ?? "Not available")")
 
         let config = Realm.Configuration(
-            schemaVersion: 3,
+            schemaVersion: 6,
             migrationBlock: { _, oldSchemaVersion in
-                if oldSchemaVersion < 3 {}
+                if oldSchemaVersion < 6 {}
             }
         )
 

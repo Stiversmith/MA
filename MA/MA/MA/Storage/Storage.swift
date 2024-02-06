@@ -4,10 +4,6 @@ import RealmSwift
 let realm = try! Realm()
 
 enum StorageManager {
-    static func getAllWordLists() -> Results<WordLists> {
-        realm.objects(WordLists.self)
-    }
-    
     static func deleteAll() {
         do {
             try realm.write {
@@ -50,42 +46,44 @@ enum StorageManager {
         }
     }
     
-    static func saveName(name: DictionaryLists, date: DictionaryLists) {
+    static func saveName(name: String, words: [String], date: Date) {
+        let dictionaryList = DictionaryLists(name: name)
+        dictionaryList.date = date
+
+        for word in words {
+            let wordObject = WordLists()
+            wordObject.words = word
+            dictionaryList.words.append(wordObject)
+        }
+
         do {
             try realm.write {
-                realm.add(name)
+                realm.add(dictionaryList)
+            }
+        } catch {
+            print("error: \(error)")
+        }
+    }
+    
+    static func deleteName(name: DictionaryLists) {
+        do {
+            try realm.write {
+                realm.delete(name)
+            }
+        } catch {
+            print("error: \(error)")
+        }
+    }
+    
+    static func editName(name: DictionaryLists,
+                         newName: String)
+    {
+        do {
+            try realm.write {
+                name.name = newName
             }
         } catch {
             print("error: \(error)")
         }
     }
 }
-    /*
-
-     static func deleteWordIn(word: WordLists) {
-         do {
-             try realm.write {
-                 let dictionarys = word.dictionarys
-                 realm.delete(word)
-                 realm.delete(dictionarys)
-             }
-         } catch {
-             print("error: \(error)")
-         }
-     }
-     /*
-
-     static func editWord(words: WordLists,
-                          newWord: String)
-     {
-         do {
-             try realm.write {
-                 words.words = newWord
-             }
-         } catch {
-             print("error: \(error)")
-         }
-     }
-    
-      */
-     }*/

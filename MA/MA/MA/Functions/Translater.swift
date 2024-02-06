@@ -14,7 +14,7 @@ struct Translation: Decodable {
 }
 
 class Translater {
-    let apiKey = "AIzaSyAXSreJh4EFLFPqmNTVlDYL3qxPZxCfKSs"
+    var apiKey = "AIzaSyAXSreJh4EFLFPqmNTVlDYL3qxPZxCfKSs"
     
     func translate(word: String, completion: @escaping (String?) -> Void) {
         let url = "https://translation.googleapis.com/language/translate/v2"

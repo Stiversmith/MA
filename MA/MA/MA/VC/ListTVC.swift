@@ -1,28 +1,26 @@
-import UIKit
 import RealmSwift
+import UIKit
 
 class ListTVC: UITableViewController {
-
     var words: [String] = []
-        var filteredWords: [String] = []
-        var selectedWord: String?
-        var dictionaryLists: Results<DictionaryLists>!
+    var filteredWords: [String] = []
+    var selectedWord: String?
+    var dictionaryLists: Results<DictionaryLists>!
     var availableWords: [String] = []
 
-        
-        init() {
-            super.init(style: .plain)
+    init() {
+        super.init(style: .plain)
             
-            let realm = try! Realm()
-            dictionaryLists = realm.objects(DictionaryLists.self)
-        }
+        let realm = try! Realm()
+        dictionaryLists = realm.objects(DictionaryLists.self)
+    }
         
-        required init?(coder aDecoder: NSCoder) {
-            super.init(coder: aDecoder)
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
             
-            let realm = try! Realm()
-            dictionaryLists = realm.objects(DictionaryLists.self)
-        }
+        let realm = try! Realm()
+        dictionaryLists = realm.objects(DictionaryLists.self)
+    }
     
     @IBOutlet var searchBar: UISearchBar!
     
@@ -30,8 +28,8 @@ class ListTVC: UITableViewController {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "ListCellTVC", bundle: nil), forCellReuseIdentifier: "Cell")
-        words = WordManager.shared.availableWords
         tableView.reloadData()
+        searchBar.delegate = self
     }
     
     // MARK: - Table view data source
@@ -41,54 +39,68 @@ class ListTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            if !searchBar.text!.isEmpty {
-                return filteredWords.count
-            } else {
-                return dictionaryLists.count
-            }
+        if !searchBar.text!.isEmpty {
+            return filteredWords.count
+        } else {
+            return dictionaryLists.count
         }
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListCellTVC
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! ListCellTVC
                     
-            var wordList: String
+        var wordList: String
                     
-            if !searchBar.text!.isEmpty {
-                wordList = filteredWords[indexPath.row]
-            } else {
-                wordList = dictionaryLists[indexPath.row].name
-            }
+        if !searchBar.text!.isEmpty {
+            wordList = filteredWords[indexPath.row]
+        } else {
+            wordList = dictionaryLists[indexPath.row].name
+        }
         
         cell.name.text = wordList
         cell.number.text = "\(indexPath.row + 1)"
         
         let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "dd.MM.yyyy HH:mm:ss"
-                let dateString = dateFormatter.string(from: dictionaryLists[indexPath.row].date)
-                cell.date.text = dateString
-        
-        if let selectedWord = selectedWord, wordList == selectedWord {
-            cell.accessoryType = .checkmark
-        } else {
-            cell.accessoryType = .none
-        }
+        dateFormatter.dateFormat = "MM.dd.yyyy / hh.mm"
+        let dateString = dateFormatter.string(from: dictionaryLists[indexPath.row].date)
+        cell.date.text = dateString
         
         return cell
     }
     
-    func filterContentForSearchText(_ searchText: String) {
-        if !searchText.isEmpty {
-            filteredWords = WordFilter.filterWords(words, for: searchText)
-        } else {
-            filteredWords = words
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let currentName = dictionaryLists[indexPath.row]
+
+        let deleteContextualAction = UIContextualAction(style: .destructive, title: "Удалить") { [weak self] _, _, _ in
+            StorageManager.deleteName(name: currentName)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            self?.updateAvailableWords()
+            tableView.reloadData()
         }
-        tableView.reloadData()
+
+        deleteContextualAction.backgroundColor = .black
+
+        let swipeActionsConfiguration = UISwipeActionsConfiguration(actions: [deleteContextualAction])
+        return swipeActionsConfiguration
     }
     
-    func addDictionaryList(_ name: String) {
-        let dictionaryList = DictionaryLists(name: name)
-        dictionaryList.date = Date()
-        StorageManager.saveName(name: dictionaryList, date: dictionaryList)
-        availableWords.append(name)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedDictionary = dictionaryLists[indexPath.row]
+        let selectedWord = selectedDictionary.name
+
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let savedDictionaryTVC = storyboard.instantiateViewController(withIdentifier: "toSavedDictionaryTVC") as? SavedDictionaryTVC {
+            savedDictionaryTVC.navigationItem.title = selectedWord
+            savedDictionaryTVC.dictionaryList = selectedDictionary
+            navigationController?.pushViewController(savedDictionaryTVC, animated: true)
+        }
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func updateAvailableWords() {
+        availableWords.removeAll()
+        for dictionary in dictionaryLists {
+            availableWords.append(dictionary.name)
+        }
     }
 }
