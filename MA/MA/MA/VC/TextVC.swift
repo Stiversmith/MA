@@ -1,12 +1,10 @@
-
-// настроить @IBOutlet weak var actInd: UIActivityIndicatorView!
-
 import UIKit
 import Vision
 
 class TextVC: UIViewController, UINavigationControllerDelegate,
     UIImagePickerControllerDelegate, UITextFieldDelegate
 {
+    
     @IBOutlet var textView: UITextView!
     @IBOutlet var textField: UITextField!
     @IBOutlet var sendButton: UIButton!
@@ -14,26 +12,27 @@ class TextVC: UIViewController, UINavigationControllerDelegate,
     @IBOutlet var createButton: UIButton!
     @IBOutlet var galleryButton: UIButton!
     @IBOutlet var buttonStack: UIStackView!
-    @IBOutlet weak var actInd: UIActivityIndicatorView!
+    @IBOutlet var actInd: UIActivityIndicatorView!
     
     weak var delegate: TextVCDelegate?
     var text: String?
     var textToDisplay: String?
-        
     var keyboardHeight: CGFloat = 0
     var isKeyboardShown = false
-            
     let imagePickerController = UIImagePickerController()
     var selectedImage: UIImage?
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = false
         textField.delegate = self
+        
         if let text = delegate?.getRecognizedText() {
             textView.text = text
         }
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)

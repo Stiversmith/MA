@@ -1,9 +1,3 @@
-
-
-// добавить удаление названий стран городов и тд
-// добавить удаление ing
-// добавить удаление названий стран городов и тд
-
 import Foundation
 class WordProcessor {
     static func processWords(_ words: [String]) -> [String] {
@@ -56,4 +50,4 @@ class WordProcessor {
         
        return uniqueWordsArray.sorted()
     }
-}
+}  

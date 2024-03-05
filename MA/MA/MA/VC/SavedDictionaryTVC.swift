@@ -1,12 +1,15 @@
 import RealmSwift
 import UIKit
 
-class DictionaryTVC: UITableViewController {
+class SavedDictionaryTVC: UITableViewController {
     var words: [String] = []
     var wordLists: Results<WordLists>!
     var delegate: TextVC?
     var selectedSentence: String?
     var filteredWords: [String] = []
+    var savedWords: [String] = []
+    var dictionaryList: DictionaryLists?
+    var dictionaryLists: Results<DictionaryLists>!
 
     private var wordProcessor: WordProcessor
     private var cellUpdater: CellUpdater
@@ -14,6 +17,26 @@ class DictionaryTVC: UITableViewController {
     private var translations: [String: String] = [:]
 
     private static var translater: Translater?
+
+    init(wordLists: Results<WordLists>) {
+        self.wordLists = wordLists
+        self.wordProcessor = WordProcessor()
+        self.cellUpdater = CellUpdater()
+        self.wordFilter = WordFilter()
+        super.init(nibName: nil, bundle: nil)
+        let realm = try! Realm()
+        dictionaryLists = realm.objects(DictionaryLists.self)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        self.wordLists = try? Realm().objects(WordLists.self)
+        self.wordProcessor = WordProcessor()
+        self.cellUpdater = CellUpdater()
+        self.wordFilter = WordFilter()
+        super.init(coder: aDecoder)
+        let realm = try! Realm()
+        dictionaryLists = realm.objects(DictionaryLists.self)
+    }
 
     @IBOutlet var searchBar: UISearchBar!
 
@@ -23,7 +46,6 @@ class DictionaryTVC: UITableViewController {
                 return
             }
             WordManager.shared.addWord(word)
-            processWords()
             self.tableView.reloadData()
         }
     }
@@ -33,82 +55,28 @@ class DictionaryTVC: UITableViewController {
         self.tableView.reloadData()
     }
 
-    @IBAction func saveDict(_ sender: Any) {
-        AlertHandler.showSaveDictAlert { [weak self] dictName in
-            guard let dictName = dictName else {
-                return
-            }
-            let realm = try! Realm()
-
-            let dictionary = DictionaryLists()
-            dictionary.name = dictName
-
-            let wordList = WordLists()
-            wordList.words = self?.words.joined(separator: ",") ?? ""
-            dictionary.words.append(wordList)
-
-            do {
-                try realm.write {
-                    realm.add(dictionary)
-                }
-            } catch {
-                print("Ошибка при сохранении словаря: \(error)")
-            }
-
-            if let savedDictionary = realm.objects(DictionaryLists.self).filter("name == %@", dictName).first {
-                let words = savedDictionary.words.map { $0.words }
-                print(words)
-            }
-
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if let listTVC = storyboard.instantiateViewController(withIdentifier: "ListTVC") as? ListTVC {
-                listTVC.selectedWord = dictName
-                self?.navigationController?.pushViewController(listTVC, animated: true)
-            }
-        }
-    }
-
-    init(wordLists: Results<WordLists>) {
-        self.wordLists = wordLists
-        self.wordProcessor = WordProcessor()
-        self.cellUpdater = CellUpdater()
-        self.wordFilter = WordFilter()
-        super.init(nibName: nil, bundle: nil)
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        self.wordLists = try? Realm().objects(WordLists.self)
-        self.wordProcessor = WordProcessor()
-        self.cellUpdater = CellUpdater()
-        self.wordFilter = WordFilter()
-        super.init(coder: aDecoder)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.register(UINib(nibName: "MyCellTVC", bundle: nil), forCellReuseIdentifier: "Cell")
+        title = dictionaryList?.name
 
-        processWords()
+        tableView.register(UINib(nibName: "MyCellTVC", bundle: nil), forCellReuseIdentifier: "Cell")
 
         searchBar.delegate = self
 
         Self.translater = Translater()
 
-        WordManager.shared.wordAddedHandler = { [weak self] word in
-            self?.words.append(word)
-            self?.tableView.reloadData()
+        let realm = try! Realm()
+        let dictionaryLists = realm.objects(DictionaryLists.self)
+
+        for dictionary in dictionaryLists {
+            words += dictionary.words.map { $0.words }
         }
+
+        processWords()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-
-        let wordCount = words.count
-        WordCount.showAlert(withWordCount: wordCount) {
-            self.tableView.reloadData()
-        }
-    }
+    // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -125,13 +93,8 @@ class DictionaryTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? MyCellTVC ?? MyCellTVC()
 
-        let word: String
-
-        if !searchBar.text!.isEmpty {
-            word = filteredWords[indexPath.row]
-        } else {
-            word = words[indexPath.row]
-        }
+        var word = words[indexPath.row]
+        cell.titleLabel.text = word
 
         if let numberLabel = cell.numberLbl {
             numberLabel.text = "\(indexPath.row + 1)"
@@ -139,18 +102,18 @@ class DictionaryTVC: UITableViewController {
             print("numberLbl is nil!")
         }
 
-        cell.numberLbl.text = "\(indexPath.row + 1)"
-        cell.titleLabel.text = word
+        if !searchBar.text!.isEmpty {
+            word = filteredWords[indexPath.row]
+        } else {
+            word = words[indexPath.row]
+        }
 
         cell.translateCompletion = { [weak self, weak cell] word in
             self?.translateWord(word: word, forCell: cell!)
         }
 
-        if let translation = translations[word] {
-            cell.translateBtn.setTitle(translation, for: .normal)
-        } else {
-            cell.translateBtn.setTitle("Показать перевод", for: .normal)
-        }
+        let translation = translations[word] ?? "Показать перевод"
+        cell.translateBtn.setTitle(translation, for: .normal)
 
         return cell
     }
@@ -159,8 +122,6 @@ class DictionaryTVC: UITableViewController {
         let cell = tableView.cellForRow(at: indexPath) as? MyCellTVC
 
         let word = words[indexPath.row]
-
-        cell?.showActivityIndicator()
 
         if let textVC = delegate, let text = textVC.textView.text {
             AlertHandlerTranslated.showAlert(withText: text, forWord: word) { [weak self] in
@@ -202,20 +163,8 @@ class DictionaryTVC: UITableViewController {
         return swipeActionsConfiguration
     }
 
-    private func processWords() {
-        let uniqueWords = WordProcessor.processWords(words)
-        words = uniqueWords.sorted()
-        tableView.reloadData()
-
-        for word in uniqueWords {
-            let wordObject = WordLists()
-            wordObject.words = word
-            StorageManager.saveWord(word: wordObject)
-        }
-    }
-
     func translateWord(word: String, forCell cell: MyCellTVC) {
-        guard let translater = DictionaryTVC.translater else { return }
+        guard let translater = SavedDictionaryTVC.translater else { return }
 
         cell.showActivityIndicator()
 
@@ -230,5 +179,13 @@ class DictionaryTVC: UITableViewController {
                 print("Чтобы перевести '\(word)', сходите и купите себе словарь.")
             }
         }
+    }
+
+    private func processWords() {
+        guard let selectedDictionary = dictionaryList else { return }
+
+        words = selectedDictionary.words.flatMap { $0.words.components(separatedBy: ",") }
+        filteredWords = words.sorted()
+        tableView.reloadData()
     }
 }

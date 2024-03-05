@@ -2,7 +2,7 @@ import UIKit
 import Lottie
 
 class AnimationController: AnimationControllerProtocol {
-    private let animationView: LottieAnimationView
+    let animationView: LottieAnimationView
     
     init(animationViewName: String, animationSpeed: CGFloat) {
         animationView = LottieAnimationView(name: animationViewName)
